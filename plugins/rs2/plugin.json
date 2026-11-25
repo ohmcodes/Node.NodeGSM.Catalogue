@@ -1,0 +1,56 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "rs2",
+  "name": "Rising Storm 2: Vietnam Dedicated Server",
+  "description": "Dedicated server support for Rising Storm 2: Vietnam. Install, run and monitor it from NodeGSM.",
+  "author": "NodeGSM community",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://steamdb.info/app/418480/info/",
+  "tags": [
+    "steam-import",
+    "steamcmd",
+    "unreal",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "SteamDB: dedicated server app info",
+      "url": "https://steamdb.info/app/418480/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    },
+    {
+      "title": "Steam store page",
+      "url": "https://store.steampowered.com/app/418480/",
+      "type": "official"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "418480"
+  },
+  "run": {
+    "exe": "binaries/win64/VNGame.exe",
+    "args": [
+      "server",
+      "{map}?Port={port}?QueryPort={queryPort}?MaxPlayers={maxPlayers}",
+      "{param}",
+      "-log"
+    ]
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "map": "VNTE-CuChi",
+    "maxPlayers": "64"
+  },
+  "query": "a2s"
+}

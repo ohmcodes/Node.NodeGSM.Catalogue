@@ -1,0 +1,54 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "cobalt",
+  "name": "Cobalt Dedicated Server",
+  "description": "Dedicated server support for Cobalt. Install, run and monitor it from NodeGSM.",
+  "author": "NodeGSM community",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://steamdb.info/app/549990/info/",
+  "tags": [
+    "steam-import",
+    "steamcmd",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "SteamDB: dedicated server app info",
+      "url": "https://steamdb.info/app/549990/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    },
+    {
+      "title": "Steam store page",
+      "url": "https://store.steampowered.com/app/549990/",
+      "type": "official"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "549990"
+  },
+  "run": {
+    "exe": "cobalt_dedicated.exe",
+    "args": [
+      "-bundle-dir",
+      "bundle",
+      "-host_game",
+      "-mode",
+      "d",
+      "{param}"
+    ]
+  },
+  "defaults": {
+    "port": "27015",
+    "maxPlayers": "16"
+  }
+}

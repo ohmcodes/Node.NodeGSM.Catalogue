@@ -1,0 +1,58 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "ancestorslegacy",
+  "name": "Ancestors Legacy Dedicated Server",
+  "description": "Dedicated server support for Ancestors Legacy. Install, run and monitor it from NodeGSM.",
+  "author": "NodeGSM community",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://steamdb.info/app/983360/info/",
+  "tags": [
+    "steam-import",
+    "steamcmd",
+    "unreal",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "SteamDB: dedicated server app info",
+      "url": "https://steamdb.info/app/983360/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    },
+    {
+      "title": "Steam store page",
+      "url": "https://store.steampowered.com/app/983360/",
+      "type": "official"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "983360"
+  },
+  "run": {
+    "exe": "Anc/Binaries/Win64/AncServer-Win64-Shipping.exe",
+    "args": [
+      "-log",
+      "-TeamSize=1",
+      "-GameEnv=1",
+      "-port={port}",
+      "-beaconport=4610",
+      "-queryport={queryPort}",
+      "-Name={name}",
+      "{param}"
+    ]
+  },
+  "defaults": {
+    "port": "4110",
+    "queryPort": "11010",
+    "maxPlayers": "8"
+  }
+}

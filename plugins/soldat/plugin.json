@@ -1,0 +1,53 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "soldat",
+  "name": "Soldat Dedicated Server",
+  "description": "Dedicated server support for Soldat. Install, run and monitor it from NodeGSM.",
+  "author": "NodeGSM community",
+  "version": "1.0.0",
+  "platforms": [
+    "windows",
+    "linux"
+  ],
+  "url": "https://steamdb.info/app/638500/info/",
+  "tags": [
+    "steam-import",
+    "steamcmd",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "SteamDB: dedicated server app info",
+      "url": "https://steamdb.info/app/638500/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    },
+    {
+      "title": "Steam store page",
+      "url": "https://store.steampowered.com/app/638500/",
+      "type": "official"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "638500"
+  },
+  "run": {
+    "exe": "soldatserver.exe",
+    "args": [
+      "{param}"
+    ],
+    "linux": {
+      "exe": "soldatserver"
+    }
+  },
+  "defaults": {
+    "port": "23073",
+    "maxPlayers": "16"
+  }
+}

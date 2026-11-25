@@ -1,0 +1,68 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "ns2",
+  "name": "Natural Selection 2 Dedicated Server",
+  "description": "Dedicated server support for Natural Selection 2. Install, run and monitor it from NodeGSM.",
+  "author": "NodeGSM community",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://steamdb.info/app/4940/info/",
+  "tags": [
+    "steam-import",
+    "steamcmd",
+    "unreal",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "SteamDB: dedicated server app info",
+      "url": "https://steamdb.info/app/4940/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    },
+    {
+      "title": "Steam store page",
+      "url": "https://store.steampowered.com/app/4940/",
+      "type": "official"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "4940"
+  },
+  "run": {
+    "exe": "x64/Server.exe",
+    "args": [
+      [
+        "-name",
+        "{name}"
+      ],
+      [
+        "-port",
+        "{port}"
+      ],
+      [
+        "-map",
+        "{map}"
+      ],
+      [
+        "-limit",
+        "{maxPlayers}"
+      ],
+      "{param}"
+    ]
+  },
+  "defaults": {
+    "port": "27015",
+    "map": "ns2_summit",
+    "maxPlayers": "24"
+  },
+  "query": "a2s"
+}

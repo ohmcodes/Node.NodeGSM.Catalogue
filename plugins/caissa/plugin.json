@@ -1,0 +1,50 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "caissa",
+  "name": "Caïssa Board Dedicated Server",
+  "description": "Dedicated server support for Caïssa Board. Install, run and monitor it from NodeGSM.",
+  "author": "NodeGSM community",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://steamdb.info/app/2998560/info/",
+  "tags": [
+    "steam-import",
+    "steamcmd",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "SteamDB: dedicated server app info",
+      "url": "https://steamdb.info/app/2998560/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    },
+    {
+      "title": "Steam store page",
+      "url": "https://store.steampowered.com/app/2998560/",
+      "type": "official"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2998560"
+  },
+  "run": {
+    "exe": "CaissaBoardServer.exe",
+    "args": [
+      "-log",
+      "{param}"
+    ]
+  },
+  "defaults": {
+    "port": "7777",
+    "maxPlayers": "2"
+  }
+}

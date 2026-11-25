@@ -1,0 +1,49 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "sam3",
+  "name": "Serious Sam 3 Dedicated Server",
+  "description": "Dedicated server support for Serious Sam 3. Install, run and monitor it from NodeGSM.",
+  "author": "NodeGSM community",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://steamdb.info/app/41080/info/",
+  "tags": [
+    "steam-import",
+    "steamcmd",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "SteamDB: dedicated server app info",
+      "url": "https://steamdb.info/app/41080/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    },
+    {
+      "title": "Steam store page",
+      "url": "https://store.steampowered.com/app/41080/",
+      "type": "official"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "41080"
+  },
+  "run": {
+    "exe": "Bin/Sam3_DedicatedServer.exe",
+    "args": [
+      "{param}"
+    ]
+  },
+  "defaults": {
+    "port": "25600",
+    "maxPlayers": "16"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "doi",
+  "name": "Day of Infamy Dedicated Server",
+  "description": "Dedicated server support for Day of Infamy. Install, run and monitor it from NodeGSM.",
+  "author": "NodeGSM community",
+  "version": "1.0.0",
+  "platforms": [
+    "windows",
+    "linux"
+  ],
+  "url": "https://steamdb.info/app/462310/info/",
+  "tags": [
+    "steam-import",
+    "steamcmd",
+    "source",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "Server setup guide",
+      "url": "https://developer.valvesoftware.com/wiki/Day_of_Infamy_Dedicated_Server",
+      "type": "unofficial"
+    },
+    {
+      "title": "SteamDB: dedicated server app info",
+      "url": "https://steamdb.info/app/462310/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    },
+    {
+      "title": "Steam store page",
+      "url": "https://store.steampowered.com/app/462310/",
+      "type": "official"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "462310"
+  },
+  "run": {
+    "exe": "srcds.exe",
+    "args": [
+      "-console",
+      [
+        "-game",
+        "doi"
+      ],
+      [
+        "-ip",
+        "{ip}"
+      ],
+      [
+        "-port",
+        "{port}"
+      ],
+      [
+        "-maxplayers",
+        "{maxPlayers}"
+      ],
+      "{param}",
+      [
+        "+map",
+        "{map}"
+      ]
+    ],
+    "linux": {
+      "exe": "srcds_linux"
+    }
+  },
+  "defaults": {
+    "port": "27015",
+    "map": "bastogne",
+    "maxPlayers": "32"
+  },
+  "query": "a2s",
+  "gslt": true
+}

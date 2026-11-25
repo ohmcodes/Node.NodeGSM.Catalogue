@@ -1,0 +1,79 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "bms",
+  "name": "Black Mesa Dedicated Server",
+  "description": "Dedicated server support for Black Mesa. Install, run and monitor it from NodeGSM.",
+  "author": "NodeGSM community",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://steamdb.info/app/346680/info/",
+  "tags": [
+    "steam-import",
+    "steamcmd",
+    "source",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "Server setup guide",
+      "url": "https://developer.valvesoftware.com/wiki/Black_Mesa_Dedicated_Server",
+      "type": "unofficial"
+    },
+    {
+      "title": "SteamDB: dedicated server app info",
+      "url": "https://steamdb.info/app/346680/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    },
+    {
+      "title": "Steam store page",
+      "url": "https://store.steampowered.com/app/346680/",
+      "type": "official"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "346680"
+  },
+  "run": {
+    "exe": "srcds.exe",
+    "args": [
+      "-steam",
+      "-console",
+      [
+        "-game",
+        "bms"
+      ],
+      [
+        "-ip",
+        "{ip}"
+      ],
+      [
+        "-port",
+        "{port}"
+      ],
+      [
+        "-maxplayers",
+        "{maxPlayers}"
+      ],
+      "{param}",
+      [
+        "+map",
+        "{map}"
+      ]
+    ]
+  },
+  "defaults": {
+    "port": "27015",
+    "map": "dm_bounce",
+    "maxPlayers": "16"
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "insmod",
+  "name": "Insurgency Mod Dedicated Server",
+  "description": "Dedicated server support for Insurgency Mod. Install, run and monitor it from NodeGSM.",
+  "author": "NodeGSM community",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://steamdb.info/app/17705/info/",
+  "tags": [
+    "steam-import",
+    "steamcmd",
+    "source",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "SteamDB: dedicated server app info",
+      "url": "https://steamdb.info/app/17705/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    },
+    {
+      "title": "Steam store page",
+      "url": "https://store.steampowered.com/app/17705/",
+      "type": "official"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "17705"
+  },
+  "run": {
+    "exe": "srcds.exe",
+    "args": [
+      "-steam",
+      "-console",
+      [
+        "-game",
+        "insurgency"
+      ],
+      [
+        "-ip",
+        "{ip}"
+      ],
+      [
+        "-port",
+        "{port}"
+      ],
+      [
+        "-maxplayers",
+        "{maxPlayers}"
+      ],
+      "{param}",
+      [
+        "+map",
+        "{map}"
+      ]
+    ]
+  },
+  "defaults": {
+    "port": "27015",
+    "map": "ministry_coop",
+    "maxPlayers": "16"
+  },
+  "query": "a2s"
+}

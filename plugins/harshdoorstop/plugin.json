@@ -1,0 +1,51 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "harshdoorstop",
+  "name": "Operation: Harsh Doorstop Dedicated Server",
+  "description": "Dedicated server support for Operation: Harsh Doorstop. Install, run and monitor it from NodeGSM.",
+  "author": "NodeGSM community",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://steamdb.info/app/950900/info/",
+  "tags": [
+    "steam-import",
+    "steamcmd",
+    "unreal",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "SteamDB: dedicated server app info",
+      "url": "https://steamdb.info/app/950900/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    },
+    {
+      "title": "Steam store page",
+      "url": "https://store.steampowered.com/app/950900/",
+      "type": "official"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "950900"
+  },
+  "run": {
+    "exe": "HarshDoorstopServer.bat",
+    "args": [
+      "{param}"
+    ]
+  },
+  "defaults": {
+    "port": "7777",
+    "maxPlayers": "32"
+  },
+  "query": "a2s"
+}

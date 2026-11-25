@@ -1,0 +1,60 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "pavlov",
+  "name": "Pavlov VR Dedicated Server",
+  "description": "Dedicated server support for Pavlov VR. Install, run and monitor it from NodeGSM.",
+  "author": "NodeGSM community",
+  "version": "1.0.0",
+  "platforms": [
+    "linux"
+  ],
+  "url": "https://steamdb.info/app/622970/info/",
+  "tags": [
+    "steam-import",
+    "steamcmd",
+    "vr",
+    "unreal",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "Server setup guide",
+      "url": "https://pavlovwiki.com/index.php/Dedicated_Servers",
+      "type": "unofficial"
+    },
+    {
+      "title": "SteamDB: dedicated server app info",
+      "url": "https://steamdb.info/app/622970/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    },
+    {
+      "title": "Steam store page",
+      "url": "https://store.steampowered.com/app/622970/",
+      "type": "official"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "622970"
+  },
+  "run": {
+    "exe": "Pavlov/Binaries/Linux/PavlovServer",
+    "args": [
+      "{param}",
+      "-port={port}",
+      "-log"
+    ]
+  },
+  "defaults": {
+    "port": "7777",
+    "map": "office_map",
+    "maxPlayers": "24"
+  },
+  "query": "a2s"
+}

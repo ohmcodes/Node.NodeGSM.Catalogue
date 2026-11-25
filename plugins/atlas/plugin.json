@@ -1,0 +1,56 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "atlas",
+  "name": "ATLAS Dedicated Server",
+  "description": "Dedicated server support for ATLAS. Install, run and monitor it from NodeGSM.",
+  "author": "NodeGSM community",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://steamdb.info/app/1006030/info/",
+  "tags": [
+    "steam-import",
+    "steamcmd",
+    "unreal",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "SteamDB: dedicated server app info",
+      "url": "https://steamdb.info/app/1006030/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    },
+    {
+      "title": "Steam store page",
+      "url": "https://store.steampowered.com/app/1006030/",
+      "type": "official"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1006030"
+  },
+  "run": {
+    "exe": "ShooterGame/Binaries/Win64/ShooterGameServer.exe",
+    "args": [
+      "TestMapArea?listen?Port={port}?QueryPort={queryPort}?MaxPlayers={maxPlayers}?SessionName={name}",
+      "{param}",
+      "-server",
+      "-log"
+    ]
+  },
+  "defaults": {
+    "port": "5755",
+    "queryPort": "57555",
+    "map": "TestMapArea",
+    "maxPlayers": "10"
+  },
+  "query": "a2s"
+}

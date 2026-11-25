@@ -59,3 +59,6 @@ If the deploy job fails at `actions/configure-pages` with **Get Pages site faile
 
 ## License
 MIT. Game names and icons belong to their owners.
+
+## Steam dedicated servers
+Plugins tagged `steam-import` were generated from public Steam metadata (SteamCMD app info: app id, executable, launch arguments) for dedicated-server tools that were not in the catalogue yet. Their ports and arguments are untested starting points (`needs-work`).
