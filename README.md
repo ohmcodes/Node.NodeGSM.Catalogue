@@ -48,6 +48,8 @@ Need server-side search, download statistics or accounts later? Put that in the 
 
 Pull requests run validation and the tests only; nothing is deployed from a PR.
 
+If the deploy job fails at `actions/configure-pages` with **Get Pages site failed** / **Not Found**, a repository administrator must enable Pages in **Settings → Pages** and select **GitHub Actions** as the source. Then rerun the failed jobs from the Actions run, or run the Catalogue workflow on `main`. The workflow's `GITHUB_TOKEN` cannot enable Pages itself.
+
 ## Related repositories
 - **NodeGSM** (the app): https://github.com/ohmcodes/Node.WGSM2026
 - **Website**: https://github.com/ohmcodes/Node.NodeGSM.Website
