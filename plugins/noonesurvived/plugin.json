@@ -1,0 +1,58 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "noonesurvived",
+  "name": "NoOneSurvived Dedicated Server",
+  "description": "WindowsGSM plugin for supporting No One Survived Dedicated Server",
+  "author": "GeekbeeGER",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/GeekbeeGER/WindowsGSM.NoOneSurvived",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#7477d6",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (GeekbeeGER/WindowsGSM.NoOneSurvived)",
+      "url": "https://github.com/GeekbeeGER/WindowsGSM.NoOneSurvived",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2329680/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2329680"
+  },
+  "run": {
+    "exe": "WRSH/Binaries/Win64/WRSHServer.exe",
+    "args": [
+      "-port={port}",
+      "-name={name}",
+      "{param}"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "28015",
+    "maxPlayers": "50",
+    "map": "empty",
+    "additional": "-server -log",
+    "portIncrement": 2
+  },
+  "query": "a2s"
+}

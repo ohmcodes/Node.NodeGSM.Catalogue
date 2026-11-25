@@ -1,0 +1,48 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "xonotic",
+  "name": "Xonotic Dedicated Server",
+  "description": "🧩 WindowsGSM plugin that provides Xonotic Dedicated server support!",
+  "author": "Soul",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Soulflare3/WindowsGSM.Xonotic",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#7a0101",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Soulflare3/WindowsGSM.Xonotic)",
+      "url": "https://github.com/Soulflare3/WindowsGSM.Xonotic",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "Xonotic/xonotic-dedicated.exe",
+    "args": [
+      "{param}"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "26000",
+    "queryPort": "26000",
+    "maxPlayers": "8",
+    "map": "afterslime atelier boil catharsis courtfun dance drain erbium finalrage fuse geoplanetary glowplant implosion leave_em_behind nexballarena oilrig runningman runningmanctf silentsiege solarium space-e…",
+    "additional": "-dedicated +serverconfig server.cfg %*",
+    "portIncrement": 1
+  }
+}

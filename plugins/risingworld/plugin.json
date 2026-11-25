@@ -1,0 +1,53 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "risingworld",
+  "name": "RisingWorld Dedicated Server",
+  "description": "WindowsGSM plugin for supporting RisingWorld Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.RisingWorld",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.RisingWorld)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.RisingWorld",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "RisingWorldServer.exe",
+    "args": [
+      "+server_name={name}",
+      "+Server_Port={port}",
+      "+Server_QueryPort={queryPort}",
+      "+Settings_MaxPlayers={maxPlayers}",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "4255",
+    "queryPort": "4254",
+    "maxPlayers": "16",
+    "map": "Dedicated",
+    "additional": "+rcon_enabled=true +RCON_Port=4253 +server_password=Rising123",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

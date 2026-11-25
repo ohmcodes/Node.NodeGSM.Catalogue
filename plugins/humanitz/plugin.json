@@ -1,0 +1,53 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "humanitz",
+  "name": "HumanitZ Dedicated Server",
+  "description": "WindowsGSM plugin for supporting HumanitZ Dedicated Server",
+  "author": "niMBis",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/0mnifarious/WindowsGSM.HumanitZ",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (0mnifarious/WindowsGSM.HumanitZ)",
+      "url": "https://github.com/0mnifarious/WindowsGSM.HumanitZ",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2728330/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2728330"
+  },
+  "run": {
+    "exe": "HumanitZServer/Binaries/Win64/HumanitZServer-Win64-Shipping.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "16",
+    "map": "DedicatedSaveMP",
+    "portIncrement": 10
+  },
+  "query": "a2s"
+}

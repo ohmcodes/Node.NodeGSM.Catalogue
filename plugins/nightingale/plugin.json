@@ -1,0 +1,59 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "nightingale",
+  "name": "Nightingale Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Nightingale Dedicated Server",
+  "author": "Kavex",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Kavex/WindowsGSM.Nightingale.Server",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Kavex/WindowsGSM.Nightingale.Server)",
+      "url": "https://github.com/Kavex/WindowsGSM.Nightingale.Server",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/3796810/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "3796810"
+  },
+  "run": {
+    "exe": "NWXServer.exe",
+    "args": [
+      "NWXServer",
+      "-log",
+      "-unattended",
+      "{param}",
+      "-PORT={port}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "6",
+    "map": "Dedicated",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

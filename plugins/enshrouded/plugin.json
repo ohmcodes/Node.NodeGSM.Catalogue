@@ -1,0 +1,54 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "enshrouded",
+  "name": "Enshrouded Dedicated Server",
+  "description": "WindowsGSM plugin for Enshrouded Dedicated Server (MeFriendos build)",
+  "author": "MeFriendos",
+  "version": "0.1.1",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/PapaGordon/WindowsGSM.Enshrouded",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (PapaGordon/WindowsGSM.Enshrouded)",
+      "url": "https://github.com/PapaGordon/WindowsGSM.Enshrouded",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2278520/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2278520"
+  },
+  "run": {
+    "exe": "enshrouded_server.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "15636",
+    "queryPort": "15637",
+    "maxPlayers": "16",
+    "map": "Dedicated",
+    "additional": "-log",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

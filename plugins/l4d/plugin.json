@@ -1,0 +1,79 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "l4d",
+  "name": "Left 4 Dead Dedicated Server",
+  "description": "Left 4 Dead Dedicated Server (imported from WindowsGSM plugin)",
+  "author": "GTVolk",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/GTVolk/WindowsGSM.L4D",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (GTVolk/WindowsGSM.L4D)",
+      "url": "https://github.com/GTVolk/WindowsGSM.L4D",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/222840/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "222840"
+  },
+  "run": {
+    "exe": "srcds.exe",
+    "args": [
+      "-console",
+      "-game",
+      "left4dead",
+      [
+        "-ip",
+        "{ip}"
+      ],
+      [
+        "-port",
+        "{port}"
+      ],
+      [
+        "-maxplayers",
+        "{maxPlayers}"
+      ],
+      [
+        "+sv_setsteamaccount",
+        "{gslt}"
+      ],
+      "{param}",
+      [
+        "+map",
+        "{map}"
+      ]
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27015",
+    "map": "l4d_hospital01_apartment",
+    "additional": "-nocrashdialog +clientport {{clientport}}",
+    "portIncrement": 1
+  },
+  "query": "a2s",
+  "gslt": true
+}

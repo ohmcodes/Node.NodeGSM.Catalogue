@@ -1,0 +1,51 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "darkmessiahofmightandmagic",
+  "name": "Dark Messiah of Might and Magic Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Dark Messiah of Might and Magic Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.DarkMessiahOfMightAndMagic",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#1e8449",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.DarkMessiahOfMightAndMagic)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.DarkMessiahOfMightAndMagic",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2145/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2145"
+  },
+  "run": {
+    "exe": "srcds.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "maxPlayers": "16",
+    "additional": "-console -condebug +maxplayers 16 +map ctf_3 +exec server.cfg"
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "sonsoftheforest",
+  "name": "Sons Of The Forest",
+  "description": "🧩 WindowsGSM plugin for Sons Of The Forest",
+  "author": "ma-halo",
+  "version": "0.1.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ma-halo/WindowsGSM.SonsOfTheForest",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#5c1504",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ma-halo/WindowsGSM.SonsOfTheForest)",
+      "url": "https://github.com/ma-halo/WindowsGSM.SonsOfTheForest",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2465200/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2465200"
+  },
+  "run": {
+    "exe": "SonsOfTheForestDS.exe",
+    "args": [
+      [
+        "-dedicatedserver.IpAddress",
+        "{ip}"
+      ],
+      [
+        "-dedicatedserver.ServerName",
+        "{name}"
+      ],
+      [
+        "-dedicatedserver.MaxPlayers",
+        "{maxPlayers}"
+      ],
+      "-dedicatedserver.LogFilesEnabled",
+      "true",
+      [
+        "-dedicatedserver.GamePort",
+        "{port}"
+      ],
+      [
+        "-dedicatedserver.QueryPort",
+        "{queryPort}"
+      ],
+      "-userdatapath",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "8766",
+    "queryPort": "27016",
+    "maxPlayers": "8",
+    "portIncrement": 1
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "starmade",
+  "name": "StarMade Dedicated Server",
+  "description": "🧩 WindowsGSM plugin for supporting StarMade Dedicated Server",
+  "author": "Deathreus",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Deathreus/WindowsGSM.Starmade",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#888888",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Deathreus/WindowsGSM.Starmade)",
+      "url": "https://github.com/Deathreus/WindowsGSM.Starmade",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/244770/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "244770"
+  },
+  "run": {
+    "exe": "StarMade/StarMade.jar",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "4242",
+    "queryPort": "4242",
+    "maxPlayers": "40",
+    "map": "world0",
+    "portIncrement": 1
+  },
+  "query": "ut3"
+}

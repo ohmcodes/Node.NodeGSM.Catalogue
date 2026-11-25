@@ -1,0 +1,58 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "craftopia",
+  "name": "Craftopia",
+  "description": "WindowsGSM plugin for supporting Craftopia Dedicated Server",
+  "author": "GeekbeeGER",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/GeekbeeGER/WindowsGSM.Craftopia",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#9eff99",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (GeekbeeGER/WindowsGSM.Craftopia)",
+      "url": "https://github.com/GeekbeeGER/WindowsGSM.Craftopia",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1670340/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1670340"
+  },
+  "run": {
+    "exe": "Craftopia.exe",
+    "args": [
+      "-port={port}",
+      "-name={name}",
+      "{param}"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "6587",
+    "queryPort": "4380",
+    "maxPlayers": "64",
+    "map": "empty",
+    "additional": "-batchmode -showlogs",
+    "portIncrement": 2
+  },
+  "query": "a2s"
+}

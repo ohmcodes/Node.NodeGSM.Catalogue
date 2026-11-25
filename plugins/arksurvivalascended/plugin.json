@@ -1,0 +1,54 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "arksurvivalascended",
+  "name": "ArkSurvivalAscended Dedicated Server",
+  "description": "WindowsGSM plugin for supporting ArkSurvivalAscended Dedicated Server",
+  "author": "sh1ny",
+  "version": "1.22.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/sh1ny/WindowsGSM.ArkSurvivalAscended",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (sh1ny/WindowsGSM.ArkSurvivalAscended)",
+      "url": "https://github.com/sh1ny/WindowsGSM.ArkSurvivalAscended",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2430930/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2430930"
+  },
+  "run": {
+    "exe": "ShooterGame/Binaries/Win64/ArkAscendedServer.exe",
+    "args": [
+      "?listen"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "40",
+    "map": "TheIsland_WP",
+    "portIncrement": 2
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "btw",
+  "name": "Beyond The Wire Dedicated Server",
+  "description": "WindowsGSM plugin to add support for Beyond The Wire Dedicated Server",
+  "author": "ExpendaBubble",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ExpendaBubble/WindowsGSM.BeyondTheWire",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#ffc40b",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ExpendaBubble/WindowsGSM.BeyondTheWire)",
+      "url": "https://github.com/ExpendaBubble/WindowsGSM.BeyondTheWire",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1064780/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1064780"
+  },
+  "run": {
+    "exe": "WireGameServer.exe",
+    "args": [
+      "{param}",
+      "Port={port}",
+      "QueryPort={queryPort}",
+      "-log",
+      "-fullcrashdump"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7887",
+    "queryPort": "27165",
+    "maxPlayers": "100",
+    "additional": "RANDOM=ALWAYS FIXEDMAXTICKRATE=50",
+    "portIncrement": 10
+  },
+  "query": "a2s"
+}

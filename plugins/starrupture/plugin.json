@@ -1,0 +1,48 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "starrupture",
+  "name": "StarRupture Dedicated Server",
+  "description": "WindowsGSM plugin for StarRupture Dedicated Server",
+  "author": "x1manPsychopath",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/x1manPsychopath/WindowsGSM.StarRupture",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#ff6600",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (x1manPsychopath/WindowsGSM.StarRupture)",
+      "url": "https://github.com/x1manPsychopath/WindowsGSM.StarRupture",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/3809400/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "3809400"
+  },
+  "run": {
+    "exe": "StarRuptureServerEOS.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777"
+  }
+}

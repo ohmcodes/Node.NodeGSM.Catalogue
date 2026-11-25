@@ -1,0 +1,48 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "samp",
+  "name": "SAMP Dedicated Server",
+  "description": "WindowsGSM plugin for supporting SAMP Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.0.1",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.SAMP",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#ffbf00",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.SAMP)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.SAMP",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "samp-server.exe",
+    "args": [
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "maxPlayers": "50",
+    "map": "San Andreas",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "factorio",
+  "name": "Factorio",
+  "description": "Factorio Dedicated Server plugin with mod support",
+  "author": "x1manPsychopath",
+  "version": "3.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/x1manPsychopath/WindowsGSM.Factorio",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#e69500",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (x1manPsychopath/WindowsGSM.Factorio)",
+      "url": "https://github.com/x1manPsychopath/WindowsGSM.Factorio",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/894490/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "894490"
+  },
+  "run": {
+    "exe": "bin/Factorio.exe",
+    "workingDir": "bin",
+    "args": [
+      "--start-server-load-latest",
+      "--server-settings",
+      [
+        "--port",
+        "{port}"
+      ]
+    ]
+  }
+}

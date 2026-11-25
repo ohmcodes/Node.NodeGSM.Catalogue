@@ -1,0 +1,52 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "returntomoria",
+  "name": "LOTR: Return to Moria Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Return to Moria Dedicated Server",
+  "author": "cryogenx",
+  "version": "1.02.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/cryogenx/WindowsGSM.ReturnToMoria",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (cryogenx/WindowsGSM.ReturnToMoria)",
+      "url": "https://github.com/cryogenx/WindowsGSM.ReturnToMoria",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/3349480/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "3349480"
+  },
+  "run": {
+    "exe": "Moria/Binaries/Win64/MoriaServer-Win64-Shipping.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "20151",
+    "queryPort": "20151",
+    "maxPlayers": "8",
+    "map": "newworld",
+    "portIncrement": 2
+  },
+  "query": "a2s"
+}

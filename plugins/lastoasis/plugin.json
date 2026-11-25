@@ -1,0 +1,67 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "lastoasis",
+  "name": "LastOasis Dedicated Server",
+  "description": "WindowsGSM plugin for supporting LastOasis Dedicated Server",
+  "author": "kessef",
+  "version": "1.1.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Jamie96ITS/WindowsGSM.LastOasis",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Jamie96ITS/WindowsGSM.LastOasis)",
+      "url": "https://github.com/Jamie96ITS/WindowsGSM.LastOasis",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/920720/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "920720"
+  },
+  "run": {
+    "exe": "Mist/Binaries/Win64/MistServer-Win64-Shipping.exe",
+    "args": [
+      "-log",
+      "-force_steamclient_link",
+      "-messaging",
+      "-NoLiveServer",
+      "-EnableCheats",
+      "-backendapiurloverride=backend-production.last-oasis.com",
+      "-identifier={map}",
+      "-port={port}",
+      "{param}",
+      "-slots={maxPlayers}",
+      "-QueryPort={queryPort}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "5555",
+    "queryPort": "27015",
+    "maxPlayers": "100",
+    "map": "neon_server1",
+    "additional": "-CustomerKey=GameServerRegistrationKey -ProviderKey=SelfHostedGameServersRegistrationKey",
+    "portIncrement": 2
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "arma2",
+  "name": "Arma 2 Dedicated Server",
+  "description": "Arma 2 Dedicated Server (imported from WindowsGSM plugin)",
+  "author": "GTVolk",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/GTVolk/WindowsGSM.ARMA2",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (GTVolk/WindowsGSM.ARMA2)",
+      "url": "https://github.com/GTVolk/WindowsGSM.ARMA2",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/33905/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "33905"
+  },
+  "run": {
+    "exe": "Arma2Server.exe",
+    "args": [
+      "-port={port}",
+      "-name={name}",
+      "{param}"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "2302",
+    "queryPort": "2303",
+    "maxPlayers": "64",
+    "map": "empty",
+    "additional": "-profiles=ArmaHosts -config=server.cfg",
+    "portIncrement": 2
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "sunkenland",
+  "name": "Sunkenland Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Sunkenland Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.0.1",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.Sunkenland",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#1e8449",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.Sunkenland)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.Sunkenland",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2667530/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2667530"
+  },
+  "run": {
+    "exe": "Sunkenland-DedicatedServer.exe",
+    "args": [
+      [
+        "-maxPlayerCapacity",
+        "{maxPlayers}"
+      ],
+      [
+        "-worldGuid",
+        "{map}"
+      ],
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27015",
+    "maxPlayers": "3",
+    "map": "Your World Guid",
+    "additional": "-nographics -batchmode -password \"yourPassword\" -region \"Asia\" -makeSessionInvisible false -logFile \"YourPathhere\""
+  }
+}

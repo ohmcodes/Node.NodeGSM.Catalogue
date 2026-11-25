@@ -1,0 +1,58 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "memoriesofmars",
+  "name": "Memories of Mars Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Memories of Mars Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.2.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.MemoriesOfMars",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#f5bd1f",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.MemoriesOfMars)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.MemoriesOfMars",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/897590/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "897590"
+  },
+  "run": {
+    "exe": "Game/Binaries/Win64/MemoriesOfMarsServer.exe",
+    "args": [
+      "-MULTIHOME={ip}",
+      "-port={port}",
+      "-beaconport={queryPort}",
+      "-maxplayers={maxPlayers}",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "2",
+    "map": "Main"
+  }
+}

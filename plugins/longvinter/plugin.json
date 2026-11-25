@@ -1,0 +1,57 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "longvinter",
+  "name": "Longvinter Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Longvinter Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.Longvinter",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.Longvinter)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.Longvinter",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1639880/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1639880"
+  },
+  "run": {
+    "exe": "Longvinter/Binaries/Win64/LongvinterServer-Win64-Shipping.exe",
+    "args": [
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "16",
+    "map": "default",
+    "additional": "-stdlog",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

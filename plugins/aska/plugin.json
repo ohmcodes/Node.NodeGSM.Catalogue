@@ -1,0 +1,57 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "aska",
+  "name": "ASKA Dedicated Server",
+  "description": "WindowsGSM plugin for supporting ASKA Dedicated Server",
+  "author": "Gimpy",
+  "version": "1.2.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/tadavispmd040507/WindowsGSM.ASKA",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#12ff12",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (tadavispmd040507/WindowsGSM.ASKA)",
+      "url": "https://github.com/tadavispmd040507/WindowsGSM.ASKA",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/3246670/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "3246670"
+  },
+  "run": {
+    "exe": "AskaServer.exe",
+    "args": [
+      "-propertiesPath",
+      "server properties.txt"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "maxPlayers": "4",
+    "map": "Default",
+    "portIncrement": 1
+  },
+  "query": "a2s",
+  "gslt": true
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "stationeers",
+  "name": "Stationeers Dedicated Server",
+  "description": "🧩 WindowsGSM plugin for supporting Staioneers Dedicated Server",
+  "author": "Nopus",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Nopus64/WindowsGSM.STATIONEERS",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#0000ff",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Nopus64/WindowsGSM.STATIONEERS)",
+      "url": "https://github.com/Nopus64/WindowsGSM.STATIONEERS",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "rocketstation_DedicatedServer.exe",
+    "args": [
+      "-log",
+      "{param}"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "27000",
+    "queryPort": "27001",
+    "maxPlayers": "0",
+    "map": "Moon",
+    "additional": "-batchmode -nographics -autostart -gameport=27000 -updateport=27001 -autosaveinterval=300 -servername=WGSM-StationeersServer -password=lol -loadworld=WGSM-StationeersServer -worldname=WGSM-StationeersServer",
+    "portIncrement": 1
+  }
+}

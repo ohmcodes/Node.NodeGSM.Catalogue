@@ -1,0 +1,53 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "projectzomboid",
+  "name": "Project Zomboid Dedicated Server",
+  "description": "WindowsGSM plugin for Project Zomboid Dedicated Server (MeFriendos build)",
+  "author": "MeFriendos",
+  "version": "0.1.4",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/PapaGordon/WindowsGSM.ProjectZomboid",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#38cdd4",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (PapaGordon/WindowsGSM.ProjectZomboid)",
+      "url": "https://github.com/PapaGordon/WindowsGSM.ProjectZomboid",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/380870/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "380870"
+  },
+  "run": {
+    "exe": "jre64/bin/java.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "16261",
+    "queryPort": "16261",
+    "maxPlayers": "64",
+    "map": "Muldraugh, KY",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

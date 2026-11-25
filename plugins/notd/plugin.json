@@ -1,0 +1,58 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "notd",
+  "name": "Night of the Dead Dedicated Server",
+  "description": "WindowsGSM plugin for supporting NotD Dedicated Server",
+  "author": "Gimpy",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/tadavispmd040507/WindowsGSM.NotD",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#12ff12",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (tadavispmd040507/WindowsGSM.NotD)",
+      "url": "https://github.com/tadavispmd040507/WindowsGSM.NotD",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1420710/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1420710"
+  },
+  "run": {
+    "exe": "LF/Binaries/Win64/LFServer-Win64-Shipping.exe",
+    "args": [
+      "?listen",
+      "-log",
+      "-CRASHREPORTS"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "16",
+    "map": "Default",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

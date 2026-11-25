@@ -1,0 +1,57 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "voyagersofnera",
+  "name": "VoyagersOfNera Dedicated Server",
+  "description": "WindowsGSM plugin for supporting VoyagersOfNera Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.VoyagersOfNera",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.VoyagersOfNera)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.VoyagersOfNera",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/3937860/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "3937860"
+  },
+  "run": {
+    "exe": "BoatGame/Binaries/Win64/BoatGameServer-Win64-Shipping.exe",
+    "args": [
+      "-port={port}",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "7778",
+    "maxPlayers": "16",
+    "map": "Dedicated",
+    "additional": "-log",
+    "portIncrement": 2
+  },
+  "query": "a2s"
+}

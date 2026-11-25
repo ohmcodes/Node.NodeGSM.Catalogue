@@ -1,0 +1,51 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "mindustry",
+  "name": "Mindustry",
+  "description": "WindowsGSM plugin for Mindustry",
+  "author": "Original: Andy |Modified: Majorchuckles",
+  "version": "1.2.2",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/majorchuckles/WindowsGSM.Mindustry-2025",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#800080",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (majorchuckles/WindowsGSM.Mindustry-2025)",
+      "url": "https://github.com/majorchuckles/WindowsGSM.Mindustry-2025",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "server-release.jar",
+    "args": [
+      "-jar",
+      "server-release.jar"
+    ],
+    "stdin": true,
+    "stopCommand": "stop"
+  },
+  "defaults": {
+    "port": "6567",
+    "queryPort": "6859",
+    "maxPlayers": "10",
+    "map": "None",
+    "additional": "host",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

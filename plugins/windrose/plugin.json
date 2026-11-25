@@ -1,0 +1,54 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "windrose",
+  "name": "Windrose Dedicated Server",
+  "description": "Windrose Dedicated Server for WindowsGSM with WorldGuard protection and safe connection-mode management",
+  "author": "Luiz Augusto Barcelos",
+  "version": "2.4.1",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/BARCELOSTV/WindowsGSM.Windrose.WorldGuard",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#8b1a1a",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (BARCELOSTV/WindowsGSM.Windrose.WorldGuard)",
+      "url": "https://github.com/BARCELOSTV/WindowsGSM.Windrose.WorldGuard",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/4129620/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "4129620"
+  },
+  "run": {
+    "exe": "R5/Binaries/Win64/WindroseServer-Win64-Shipping.exe",
+    "args": [
+      "-log"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "7778",
+    "maxPlayers": "4",
+    "map": "Windrose"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "icarus",
+  "name": "Icarus Dedicated Server",
+  "description": "WindowsGMS plugin for Icarus Dedicated Server",
+  "author": "BizakDaTroll",
+  "version": "0.7.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/BizakDaTroll/WindowsGSM.Icarus",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#ffffff",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (BizakDaTroll/WindowsGSM.Icarus)",
+      "url": "https://github.com/BizakDaTroll/WindowsGSM.Icarus",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2089300/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2089300"
+  },
+  "run": {
+    "exe": "Icarus/Binaries/win64/IcarusServer-Win64-Shipping.exe",
+    "args": [
+      "{param}",
+      "-NOSTEAM",
+      "-log",
+      "-PORT={port}",
+      "-QueryPort={queryPort}",
+      "-SteamServerName={name}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "17777",
+    "queryPort": "27015",
+    "maxPlayers": "8",
+    "portIncrement": 10
+  }
+}

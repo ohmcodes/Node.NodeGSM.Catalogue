@@ -1,0 +1,64 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "abioticfactor",
+  "name": "Abiotic Factor Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Abiotic Factor Dedicated Server",
+  "author": "Kavex",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Kavex/WindowsGSM.AbioticFactor",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Kavex/WindowsGSM.AbioticFactor)",
+      "url": "https://github.com/Kavex/WindowsGSM.AbioticFactor",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2857200/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2857200"
+  },
+  "run": {
+    "exe": "AbioticFactor/Binaries/Win64/AbioticFactorServer-Win64-Shipping.exe",
+    "args": [
+      "AbioticFactorServer",
+      "-log",
+      "-useperfthreads",
+      "-NoAsyncLoadingThread",
+      "-unattended",
+      "{param}",
+      "-PORT={port}",
+      "-QueryPort={queryPort}",
+      "-MaxServerPlayers={maxPlayers}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "6",
+    "map": "Dedicated",
+    "additional": "-ServerPassword=CHANGEME -SteamServerName='Abiotic Factor Dedicated Server'",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "lifeisfeudal",
+  "name": "Life Is Feudal Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Life Is Feudal Dedicated Server",
+  "author": "Sarpendon",
+  "version": "1.2.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Sarpendon/WindowsGSM.LifeIsFeudal",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#8802db",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Sarpendon/WindowsGSM.LifeIsFeudal)",
+      "url": "https://github.com/Sarpendon/WindowsGSM.LifeIsFeudal",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/320850/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "320850"
+  },
+  "run": {
+    "exe": "ddctd_cm_yo_server.exe",
+    "args": [
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "28000",
+    "queryPort": "28001",
+    "maxPlayers": "64",
+    "map": "-world 1",
+    "portIncrement": 4
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "arma3",
+  "name": "Arma 3 Dedicated Server",
+  "description": "WindowsGSM plugin for Arma 3 Dedicated Server (MeFriendos build)",
+  "author": "MeFriendos",
+  "version": "0.1.5",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/PapaGordon/WindowsGSM.ARMA3",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#9eff99",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (PapaGordon/WindowsGSM.ARMA3)",
+      "url": "https://github.com/PapaGordon/WindowsGSM.ARMA3",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/233780/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "233780"
+  },
+  "run": {
+    "exe": "arma3server_x64.exe",
+    "args": [
+      "-port={port}",
+      "-name={name}",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "2302",
+    "queryPort": "2303",
+    "maxPlayers": "64",
+    "map": "empty",
+    "additional": "-profiles=ArmaHosts -config=server.cfg",
+    "portIncrement": 100
+  },
+  "query": "a2s"
+}

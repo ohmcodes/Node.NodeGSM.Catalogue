@@ -1,0 +1,80 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "tf2_vr",
+  "name": "Team Fortress 2 VR MOD Dedicated Server",
+  "description": "WindowsGSM plugin for supporting TF2 VR Mod Dedicated Server",
+  "author": "Raziel7893",
+  "version": "1.0.1",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.TF2_VR",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.TF2_VR)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.TF2_VR",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/4957840/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "4957840"
+  },
+  "run": {
+    "exe": "srcds_win64.exe",
+    "args": [
+      "-console",
+      "-condebug",
+      [
+        "-game",
+        "tfvr"
+      ],
+      [
+        "-ip",
+        "{ip}"
+      ],
+      [
+        "-secure",
+        "-port",
+        "{port}"
+      ],
+      [
+        "+sv_setsteamaccount",
+        "{gslt}"
+      ],
+      "{param}",
+      [
+        "+map",
+        "{map}"
+      ]
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27015",
+    "maxPlayers": "32",
+    "map": "ctf_2fort",
+    "additional": "-tickrate 64 +sv_lan 0 +sv_hibernate_when_empty 0 +log on +heartbeat"
+  },
+  "query": "a2s",
+  "gslt": true
+}

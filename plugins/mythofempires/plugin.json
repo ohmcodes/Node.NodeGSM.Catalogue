@@ -1,0 +1,65 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "mythofempires",
+  "name": "Myth of Empires Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Myth of Empires Dedicated Server",
+  "author": "Sarpendon",
+  "version": "2.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Sarpendon/WindowsGSM.MythofEmpires",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#8802db",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Sarpendon/WindowsGSM.MythofEmpires)",
+      "url": "https://github.com/Sarpendon/WindowsGSM.MythofEmpires",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1794810/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1794810"
+  },
+  "run": {
+    "exe": "MOE/Binaries/Win64/MOEServer.exe",
+    "args": [
+      "{map}",
+      "-MultiHome={ip}",
+      "-SessionName={name}",
+      "-PrivateServerPassword={gslt}",
+      "-MaxPlayers={maxPlayers}",
+      "-Port={port}",
+      "-ShutDownServicePort={queryPort}",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "7779",
+    "maxPlayers": "100",
+    "map": "LargeTerrain_Central2_Main",
+    "additional": "-game -server -DataLocalFile -NotCheckServerSteamAuth -log log=123456.log -LOCALLOGTIMES -PrivateServer -disable_qim -UseACE -EnableVACBan=1 -ServerId=100 -ClusterId=1 -bStartShutDownServiceInPrivateServer=true -ShutDownServiceIP=127.0.0.1 -ShutDownServiceKey=302172 -ServerAdminAccounts=insert_stea…",
+    "portIncrement": 3
+  },
+  "query": "a2s",
+  "gslt": true
+}

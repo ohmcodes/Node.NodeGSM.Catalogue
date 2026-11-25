@@ -1,0 +1,66 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "thefront",
+  "name": "The Front Dedicated Server",
+  "description": "WindowsGSM plugin for supporting The Front Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.TheFront",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#f5bd1f",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.TheFront)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.TheFront",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2612550/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2612550"
+  },
+  "run": {
+    "exe": "ProjectWar/Binaries/Win64/TheFrontServer.exe",
+    "args": [
+      "ProjectWar_Start?{map}?MaxPlayers={maxPlayers}?udrs=steam",
+      "-server",
+      "-game",
+      "-log",
+      "{param}",
+      "-OutIPAddress={ip}",
+      "-ServerName={name}",
+      "-SteamServerName={name}",
+      "-Port={port}",
+      "-QueryPort={queryPort}",
+      "-MaxQueueSize={maxPlayers}",
+      "-QueueThreshold={maxPlayers}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27047",
+    "queryPort": "27048",
+    "maxPlayers": "100",
+    "map": "DedicatedServer"
+  },
+  "query": "a2s"
+}

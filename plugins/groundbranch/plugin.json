@@ -1,0 +1,54 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "groundbranch",
+  "name": "Ground Branch Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Ground Branch Dedicated Server",
+  "author": "WindowsGSM",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/VisualYak/WindowsGSM.GroundBranch",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (VisualYak/WindowsGSM.GroundBranch)",
+      "url": "https://github.com/VisualYak/WindowsGSM.GroundBranch",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/476400/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "476400"
+  },
+  "run": {
+    "exe": "GroundBranch/Binaries/Win64/GroundBranchServer-Win64-Shipping.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "16",
+    "map": "SmallTown",
+    "additional": "-log -Port={{port}} -QueryPort={{queryport}}",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "neoforgeruntime",
+  "name": "NeoForgeRuntime",
+  "description": "NeoForgeRuntime (imported from WindowsGSM plugin)",
+  "author": "PapaGordon",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/PapaGordon/WindowsGSM.Minecraft_NeoForge",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (PapaGordon/WindowsGSM.Minecraft_NeoForge)",
+      "url": "https://github.com/PapaGordon/WindowsGSM.Minecraft_NeoForge",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "run.bat",
+    "args": [
+      "@user_jvm_args.txt",
+      "@nogui"
+    ],
+    "stdin": true,
+    "stopCommand": "stop"
+  },
+  "defaults": {
+    "portIncrement": 1
+  },
+  "query": "ut3"
+}

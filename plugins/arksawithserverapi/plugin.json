@@ -1,0 +1,54 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "arksawithserverapi",
+  "name": "ARK:SA™ Dedicated Server with ServerAPI",
+  "description": "WindowsGSM plugin for supporting ARK:SA™ Dedicated Server with ServerAPI from GameServerHub",
+  "author": "ohmcodes™",
+  "version": "2.9.2",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.ArkSAwithServerAPI",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#008b8b",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.ArkSAwithServerAPI)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.ArkSAwithServerAPI",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2430930/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2430930"
+  },
+  "run": {
+    "exe": "ShooterGame/Binaries/Win64/ArkAscendedServer.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "70",
+    "map": "TheIsland_WP",
+    "additional": "?RCONEnabled=True?RCONPort=31001?ServerAutoForceRespawnWildDinosInterval=86400?AllowCrateSpawnsOnTopOfStructures=True -UseBattlEye -server -crossplay -nosteamclient -servergamelog -log -lowmem -nosound -ServerRCONOutputTribeLogs -culture=en -servergamelogincludetribelogs -forcerespawndinos",
+    "portIncrement": 2
+  },
+  "query": "a2s"
+}

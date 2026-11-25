@@ -1,0 +1,60 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "nuclearoption",
+  "name": "Nuclear Option Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Nuclear Option Dedicated Server",
+  "author": "Gerry of Ravine",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/RaylaValdez/WindowsGSM.NuclearOption",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#00ff0d",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (RaylaValdez/WindowsGSM.NuclearOption)",
+      "url": "https://github.com/RaylaValdez/WindowsGSM.NuclearOption",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/3930080/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "3930080"
+  },
+  "run": {
+    "exe": "NuclearOptionServer.exe",
+    "args": [
+      "-logFile",
+      "server.log",
+      "-limitframerate",
+      "30"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "7778",
+    "maxPlayers": "16",
+    "map": "Escalation",
+    "additional": "-logFile server.log -limitframerate 30",
+    "portIncrement": 2
+  },
+  "query": "a2s"
+}

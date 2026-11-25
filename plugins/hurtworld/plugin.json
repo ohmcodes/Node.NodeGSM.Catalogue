@@ -1,0 +1,56 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "hurtworld",
+  "name": "Hurtworld Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Hurtworld Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.Hurtworld",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.Hurtworld)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.Hurtworld",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/405100/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "405100"
+  },
+  "run": {
+    "exe": "Hurtworld.exe",
+    "args": [
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "12871",
+    "queryPort": "12881",
+    "maxPlayers": "16",
+    "map": "default",
+    "additional": "-batchmode -nographics -exec \"host 12871;queryport 12881;servername My New Server;addadmin <My Steam ID>\" -logfile \"gamelog.txt\"",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

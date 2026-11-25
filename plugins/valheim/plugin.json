@@ -1,0 +1,54 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "valheim",
+  "name": "Valheim Dedicated Server",
+  "description": "WindowsGSM plugin for Valheim Dedicated Server (MeFriendos build)",
+  "author": "MeFriendos",
+  "version": "0.1.4",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/PapaGordon/WindowsGSM.Valheim",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#8802db",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (PapaGordon/WindowsGSM.Valheim)",
+      "url": "https://github.com/PapaGordon/WindowsGSM.Valheim",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/896660/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "896660"
+  },
+  "run": {
+    "exe": "valheim_server.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "2456",
+    "queryPort": "2457",
+    "maxPlayers": "10",
+    "map": "Dedicated",
+    "additional": "-password \"CHANGE_ME\" -savedir \".\\save-data\" -public 1 -saveinterval 1800 -backups 4 -backupshort 7200 -backuplong 43200",
+    "portIncrement": 2
+  },
+  "query": "a2s"
+}

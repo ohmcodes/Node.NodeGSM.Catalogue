@@ -1,0 +1,56 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "dragonhold",
+  "name": "Dragonhold Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Dragonhold Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.Dragonhold",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.Dragonhold)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.Dragonhold",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/3555820/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "3555820"
+  },
+  "run": {
+    "exe": "Dragonhold/Binaries/Win64/DragonholdServer-Win64-Shipping.exe",
+    "args": [
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "16",
+    "map": "default",
+    "additional": "-server -log -AUTH_TYPE=deviceid -AUTH_LOGIN=test -AUTH_TOKEN=test -EOSConfig=ServerConfig",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

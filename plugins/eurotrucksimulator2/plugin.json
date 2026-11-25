@@ -1,0 +1,56 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "eurotrucksimulator2",
+  "name": "Euro Truck Simulator 2 Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Euro Truck Simulator 2 Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.2.1",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.EuroTruckSimulator2",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#ffd700",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.EuroTruckSimulator2)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.EuroTruckSimulator2",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1948160/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1948160"
+  },
+  "run": {
+    "exe": "bin/win_x64/eurotrucks2_server.exe",
+    "args": [
+      "-server",
+      "-nosingle",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "maxPlayers": "8"
+  },
+  "query": "a2s"
+}

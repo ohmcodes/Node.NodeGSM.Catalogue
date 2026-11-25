@@ -1,0 +1,52 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "theisle-2",
+  "name": "The Isle Evrima Dedicated Server",
+  "description": "WindowsGSM plugin for supporting TheIsle Evrima Dedicated Server",
+  "author": "Voosjey",
+  "version": "1.4.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Voosjey/WindowsGSM.TheIsleEvrima",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Voosjey/WindowsGSM.TheIsleEvrima)",
+      "url": "https://github.com/Voosjey/WindowsGSM.TheIsleEvrima",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "TheIsle/Binaries/Win64/TheIsleServer-Win64-Shipping.exe",
+    "args": [
+      "?Port={port}",
+      "-nosteamclient",
+      "-game",
+      "-server",
+      "-log"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "6777",
+    "queryPort": "6000",
+    "maxPlayers": "75",
+    "map": "Gateway",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

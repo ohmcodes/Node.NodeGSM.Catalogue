@@ -1,0 +1,59 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "overthetopww2",
+  "name": "OverTheTopWW2 Dedicated Server",
+  "description": "WindowsGSM plugin for supporting OverTheTopWW2 Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.0.2",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.OverTheTopWW2",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.OverTheTopWW2)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.OverTheTopWW2",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/3052620/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "3052620"
+  },
+  "run": {
+    "exe": "Over_The_Top_WWI.exe",
+    "args": [
+      "-batchmode",
+      "-nographics",
+      "-server",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7186",
+    "queryPort": "7187",
+    "maxPlayers": "130",
+    "map": "default",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "fabricmc",
+  "name": "Minecraft: Fabric Server",
+  "description": "🧩 WindowsGSM plugin for supporting Minecraft: Fabric Servers",
+  "author": "Chroma",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/chromamods/WindowsGSM.FabricMC",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#ffec00",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (chromamods/WindowsGSM.FabricMC)",
+      "url": "https://github.com/chromamods/WindowsGSM.FabricMC",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "start.bat",
+    "stdin": true,
+    "stopCommand": "stop"
+  },
+  "defaults": {
+    "port": "25565",
+    "queryPort": "25565",
+    "maxPlayers": "20",
+    "map": "world",
+    "portIncrement": 1
+  },
+  "query": "ut3"
+}

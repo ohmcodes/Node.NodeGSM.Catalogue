@@ -1,0 +1,52 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "schedule1",
+  "name": "Schedule I Dedicated Server (S1DS)",
+  "description": "🧩 WindowsGSM plugin for Schedule I Dedicated Server, powered by the community DedicatedServerMod (S1DS)",
+  "author": "Hotwire90",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Hotwire90/WindowsGSM.Schedule1",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#4caf50",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Hotwire90/WindowsGSM.Schedule1)",
+      "url": "https://github.com/Hotwire90/WindowsGSM.Schedule1",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/3164500/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "3164500"
+  },
+  "run": {
+    "exe": "Schedule I.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "38465",
+    "queryPort": "27016",
+    "maxPlayers": "8",
+    "map": "Hyland Point",
+    "portIncrement": 1
+  }
+}

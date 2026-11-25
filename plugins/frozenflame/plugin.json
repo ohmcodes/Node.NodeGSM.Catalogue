@@ -1,0 +1,57 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "frozenflame",
+  "name": "FrozenFlame Dedicated Server",
+  "description": "WindowsGSM plugin for supporting FrozenFlame Dedicated Server",
+  "author": "Geekbee",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/GeekbeeGER/WindowsGSM.FrozenFlame",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34c9ec",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (GeekbeeGER/WindowsGSM.FrozenFlame)",
+      "url": "https://github.com/GeekbeeGER/WindowsGSM.FrozenFlame",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1348640/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1348640"
+  },
+  "run": {
+    "exe": "FrozenFlameServer.exe",
+    "args": [
+      "-batchmode"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "25575",
+    "queryPort": "27015",
+    "maxPlayers": "8",
+    "map": "map",
+    "additional": "-log -LOCALLOGTIMES -port=25575 -queryPort=27015 -MetaGameServerName=CoolServer -RconPassword=password -RconPort=7777",
+    "portIncrement": 10
+  },
+  "query": "a2s"
+}

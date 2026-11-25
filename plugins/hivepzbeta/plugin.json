@@ -1,0 +1,45 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "hivepzbeta",
+  "name": "Project Zomboid Server B42",
+  "description": "Hive Gaming WindowsGSM plugin for supporting Project Zomboid Dedicated Server - Unstable B42",
+  "author": "Hive Gaming",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/syekiya13-prog/WindowsGSM.Plugins.HivePZBeta",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (syekiya13-prog/WindowsGSM.Plugins.HivePZBeta)",
+      "url": "https://github.com/syekiya13-prog/WindowsGSM.Plugins.HivePZBeta",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "jre64/bin/java.exe",
+    "stdin": true,
+    "stopCommand": "quit"
+  },
+  "defaults": {
+    "port": "16261",
+    "queryPort": "16261",
+    "maxPlayers": "64",
+    "map": "Muldraugh, KY",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

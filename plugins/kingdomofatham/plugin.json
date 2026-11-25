@@ -1,0 +1,56 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "kingdomofatham",
+  "name": "KingdomOfAtham Dedicated Server",
+  "description": "WindowsGSM plugin for supporting KingdomOfAtham Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.KingdomOfAtham",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#00ff2a",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.KingdomOfAtham)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.KingdomOfAtham",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1736750/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1736750"
+  },
+  "run": {
+    "exe": "KoA/Binaries/Win64/KoAServer-Win64-Shipping.exe",
+    "args": [
+      "?SessionName={name}?Port={port}?QueryPort={queryPort}?MaxPlayers={maxPlayers}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "16",
+    "map": "Dedicated",
+    "additional": "-batchmode -nographics -log -NOSTEAM",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

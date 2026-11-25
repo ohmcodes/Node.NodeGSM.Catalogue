@@ -1,0 +1,51 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "conanexileslegacy",
+  "name": "Conan Exiles Legacy Dedicated Server",
+  "description": "U0001f9e9 A plugin version of the Conan Exiles Dedicated server for WindowsGSM",
+  "author": "Raziel7893",
+  "version": "1.4.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.ConanExilesLegacy",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#7a0101",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.ConanExilesLegacy)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.ConanExilesLegacy",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "ConanSandbox/Binaries/Win64/ConanSandboxServer-Win64-Shipping.exe",
+    "args": [
+      "-MultiHome={ip}",
+      "-Port={port}",
+      "-QueryPort={queryPort}",
+      "-MaxPlayers={maxPlayers}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "40",
+    "map": "game.db",
+    "portIncrement": 2
+  },
+  "query": "a2s"
+}

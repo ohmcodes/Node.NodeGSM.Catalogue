@@ -1,0 +1,50 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "atm10",
+  "name": "Minecraft: All the Mods 10 (ATM10)",
+  "description": "WindowsGSM plugin for Minecraft: All the Mods 10 (ATM10 / NeoForge)",
+  "author": "MeFriendos",
+  "version": "0.1.15",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/PapaGordon/WindowsGSM.ATM10",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#7ac943",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (PapaGordon/WindowsGSM.ATM10)",
+      "url": "https://github.com/PapaGordon/WindowsGSM.ATM10",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "startserver.bat",
+    "args": [
+      "@user_jvm_args.txt",
+      "@nogui"
+    ],
+    "stdin": true,
+    "stopCommand": "stop"
+  },
+  "defaults": {
+    "port": "25565",
+    "queryPort": "25565",
+    "maxPlayers": "20",
+    "map": "world",
+    "portIncrement": 1
+  },
+  "query": "ut3"
+}

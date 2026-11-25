@@ -1,0 +1,85 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "mcv",
+  "name": "Military Conflict: Vietnam Server",
+  "description": "WindowsGSM plugin for supporting Military Conflict: Vietnam Dedicated Server",
+  "author": "Dr.Abc",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/DrAbcOfficial/WindowsGSM.MCV",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#4b5320",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (DrAbcOfficial/WindowsGSM.MCV)",
+      "url": "https://github.com/DrAbcOfficial/WindowsGSM.MCV",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1136190/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1136190"
+  },
+  "run": {
+    "exe": "srcds_x64.exe",
+    "args": [
+      "-console",
+      "-game",
+      "vietnam",
+      [
+        "-ip",
+        "{ip}"
+      ],
+      [
+        "-port",
+        "{port}"
+      ],
+      [
+        "-maxplayers",
+        "{maxPlayers}"
+      ],
+      [
+        "+sv_setsteamaccount",
+        "{gslt}"
+      ],
+      "{param}",
+      [
+        "+map",
+        "{map}"
+      ],
+      [
+        "+hostname",
+        "{name}"
+      ]
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27015",
+    "maxPlayers": "16",
+    "map": "mcv_camp",
+    "additional": "-nocrashdialog +clientport {{clientport}} +log on",
+    "portIncrement": 1
+  },
+  "query": "a2s",
+  "gslt": true
+}

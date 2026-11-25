@@ -1,0 +1,54 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "motortownbtw",
+  "name": "MotorTownBTW Dedicated Server",
+  "description": "WindowsGSM plugin for supporting MotorTownBTW Dedicated Server",
+  "author": "TheRealSarcasmO",
+  "version": "2025.01.11",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/TheRealSarcasmO/WindowsGSM.MotorTownBTW",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (TheRealSarcasmO/WindowsGSM.MotorTownBTW)",
+      "url": "https://github.com/TheRealSarcasmO/WindowsGSM.MotorTownBTW",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "MotorTown/Binaries/Win64/MotorTownServer-Win64-Shipping.exe",
+    "args": [
+      "{map}?listen?",
+      "-server",
+      "{param}",
+      "-MultiHome={ip}",
+      "-Port={port}",
+      "-QueryPort={queryPort}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "200",
+    "map": "Jeju_World",
+    "additional": "-log -useperfthreads",
+    "portIncrement": 3
+  },
+  "query": "a2s"
+}

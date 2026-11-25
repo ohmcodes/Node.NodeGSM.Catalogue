@@ -1,0 +1,53 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "dontstarvetogether",
+  "name": "Don't Starve Together",
+  "description": "🧩 WindowsGSM plugin for Don't Starve Together Dedicated Server with sharded world support (Overworld + Caves)",
+  "author": "R3nderBoy",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/R3nderBoy/WindowsGSM.DontStarveTogether",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#b07d48",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (R3nderBoy/WindowsGSM.DontStarveTogether)",
+      "url": "https://github.com/R3nderBoy/WindowsGSM.DontStarveTogether",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/343050/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "343050"
+  },
+  "run": {
+    "exe": "bin64/dontstarve_dedicated_server_nullrenderer_x64.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "10999",
+    "queryPort": "27016",
+    "maxPlayers": "6",
+    "map": "MyDediServer",
+    "portIncrement": 3
+  },
+  "query": "a2s"
+}

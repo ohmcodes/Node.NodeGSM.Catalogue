@@ -1,0 +1,51 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "americantrucksimulator",
+  "name": "American Truck Simulator Dedicated Server",
+  "description": "WindowsGSM plugin for supporting American Truck Simulator Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.AmericanTruckSimulator",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#171685",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.AmericanTruckSimulator)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.AmericanTruckSimulator",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2239530/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2239530"
+  },
+  "run": {
+    "exe": "bin/win_x64/amtrucks_server.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "maxPlayers": "8"
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "battlebit",
+  "name": "BattleBit Server",
+  "description": "BattleBit Server (imported from WindowsGSM plugin)",
+  "author": "SmilerRyan",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/SmilerRyan/WindowsGSM.BattleBit",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (SmilerRyan/WindowsGSM.BattleBit)",
+      "url": "https://github.com/SmilerRyan/WindowsGSM.BattleBit",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/671860/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "671860"
+  },
+  "run": {
+    "exe": "BattleBit.exe",
+    "args": [
+      "-nographics",
+      "-batchmode",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27015",
+    "map": "bm_c1a0",
+    "additional": "-nographics -batchmode",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

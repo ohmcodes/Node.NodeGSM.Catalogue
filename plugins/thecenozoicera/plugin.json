@@ -1,0 +1,58 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "thecenozoicera",
+  "name": "The Cenozoic Era",
+  "description": "WindowsGSM plugin for supporting The Cenozoic Era Dedicated Server",
+  "author": "Koz",
+  "version": "1.1.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/kozejin/WindowsGSM.TheCenozoicEra",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (kozejin/WindowsGSM.TheCenozoicEra)",
+      "url": "https://github.com/kozejin/WindowsGSM.TheCenozoicEra",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2241720/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2241720"
+  },
+  "run": {
+    "exe": "TheCenozoicEra/Binaries/Win64/TheCenozoicEraServer.exe",
+    "args": [
+      "[Port={port}][?QueryPort={queryPort}][?MaxPlayers={maxPlayers}]",
+      "-log",
+      "-game",
+      "-server"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "21515",
+    "queryPort": "21518",
+    "maxPlayers": "75",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

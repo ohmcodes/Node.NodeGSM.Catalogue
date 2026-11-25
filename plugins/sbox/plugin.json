@@ -1,0 +1,47 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "sbox",
+  "name": "S&Box Dedicated Server",
+  "description": "WindowsGSM plugin for supporting S&Box Dedicated Server",
+  "author": "Prefix (Edit from:ohmcodes)",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Prefix/WindowsGSM.SBox",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#ffa500",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Prefix/WindowsGSM.SBox)",
+      "url": "https://github.com/Prefix/WindowsGSM.SBox",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "sbox-server.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "maxPlayers": "32",
+    "map": "facepunch.walker garry.scenemap",
+    "additional": "+net_shared_query_port False +net_use_fake_ip False +net_ping 1",
+    "portIncrement": 2
+  },
+  "query": "a2s",
+  "gslt": true
+}

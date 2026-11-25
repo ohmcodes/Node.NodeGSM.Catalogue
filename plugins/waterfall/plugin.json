@@ -1,0 +1,53 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "waterfall",
+  "name": "Minecraft: Waterfall",
+  "description": "Adds Waterfall proxy v2 support for Minecraft: Paper servers.",
+  "author": "VisualYak",
+  "version": "2.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/VisualYak/WindowsGSM.WaterfallV2",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#ffffff",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (VisualYak/WindowsGSM.WaterfallV2)",
+      "url": "https://github.com/VisualYak/WindowsGSM.WaterfallV2",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "waterfall.jar",
+    "command": "java",
+    "args": [
+      "{param}",
+      "-jar",
+      "waterfall.jar",
+      "nogui"
+    ],
+    "stdin": true,
+    "stopCommand": "end"
+  },
+  "defaults": {
+    "port": "25565",
+    "queryPort": "25565",
+    "maxPlayers": "50",
+    "map": "none",
+    "portIncrement": 1
+  },
+  "query": "ut3"
+}

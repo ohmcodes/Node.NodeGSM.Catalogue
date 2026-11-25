@@ -1,0 +1,57 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "deadmatter",
+  "name": "Deadmatter",
+  "description": "WindowsGSM plugin that adds support for Dead Matter Dedicated server.",
+  "author": "1stian",
+  "version": "1.2.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/1stian/WindowsGSM.DeadMatter",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#e84646",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (1stian/WindowsGSM.DeadMatter)",
+      "url": "https://github.com/1stian/WindowsGSM.DeadMatter",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1110990/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1110990"
+  },
+  "run": {
+    "exe": "deadmatterServer.exe",
+    "args": [
+      "-log",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27016",
+    "maxPlayers": "36",
+    "map": "dead",
+    "portIncrement": 1
+  },
+  "query": "ut3"
+}

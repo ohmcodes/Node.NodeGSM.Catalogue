@@ -1,0 +1,46 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "beammp",
+  "name": "BeamMP Server",
+  "description": "WindowsGSM plugin for supporting BeamMP Server",
+  "author": "YoruDev-Ryland",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/YoruDev-Ryland/WindowsGSM.BeamMP",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#ffffff",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (YoruDev-Ryland/WindowsGSM.BeamMP)",
+      "url": "https://github.com/YoruDev-Ryland/WindowsGSM.BeamMP",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "BeamMP-Server.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "30814",
+    "queryPort": "30814",
+    "maxPlayers": "12",
+    "map": "/levels/west_coast_usa/info.json",
+    "portIncrement": 1
+  },
+  "query": "ut3",
+  "gslt": true
+}

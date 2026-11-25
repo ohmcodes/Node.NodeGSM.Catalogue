@@ -1,0 +1,72 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "alienswarm",
+  "name": "Alien Swarm Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Alien Swarm Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.AlienSwarm",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#1e8449",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.AlienSwarm)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.AlienSwarm",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/635/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "635"
+  },
+  "run": {
+    "exe": "srcds.exe",
+    "args": [
+      [
+        "+map",
+        "{map}"
+      ],
+      [
+        "-ip",
+        "{ip}"
+      ],
+      [
+        "-port",
+        "{port}"
+      ],
+      [
+        "-maxplayers",
+        "{maxPlayers}"
+      ],
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "4",
+    "map": "lobby",
+    "additional": "-console -game swarm -autoupdate",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "shatterline",
+  "name": "Shatterline Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Shatterline Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.Shatterline",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.Shatterline)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.Shatterline",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/4167970/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "4167970"
+  },
+  "run": {
+    "exe": "Bin.Release.Dedicated/Shatterline_Server.exe",
+    "args": [
+      [
+        "+sv_port",
+        "{port}"
+      ],
+      "{param}"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "30090",
+    "queryPort": "30090",
+    "maxPlayers": "16",
+    "map": "default",
+    "additional": "--server_config game_server_config.json",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

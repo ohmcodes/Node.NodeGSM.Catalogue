@@ -1,0 +1,56 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "repoly",
+  "name": "Repoly Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Repoly Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.Repoly",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.Repoly)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.Repoly",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1189160/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1189160"
+  },
+  "run": {
+    "exe": "RePoly/Binaries/Win64/RePolyServer.exe",
+    "args": [
+      "{map}?listen?Port={port}?QueryPort={queryPort}?ip={ip}{paramRaw}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "16",
+    "map": "AspiraWorld",
+    "additional": "-server -log",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

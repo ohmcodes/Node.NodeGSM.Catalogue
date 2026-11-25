@@ -1,0 +1,58 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "foundry",
+  "name": "Foundry Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Foundry Dedicated Server",
+  "author": "werewolf2150",
+  "version": "1.5.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/werewolf2150/WindowsGSM.Foundry",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (werewolf2150/WindowsGSM.Foundry)",
+      "url": "https://github.com/werewolf2150/WindowsGSM.Foundry",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2915550/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2915550"
+  },
+  "run": {
+    "exe": "FoundryDedicatedServer.exe",
+    "args": [
+      "FactoryGame",
+      "-log",
+      "-unattended",
+      "{param}"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "3724",
+    "queryPort": "3724",
+    "maxPlayers": "32",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

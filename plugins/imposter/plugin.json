@@ -1,0 +1,45 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "imposter",
+  "name": "Impostor: AmongUS Server",
+  "description": "WindowsGSM plugin for supporting AmongUS Imposter Server",
+  "author": "Raziel7893",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.Imposter",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#ffffff",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.Imposter)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.Imposter",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "Impostor.Server.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "22023",
+    "queryPort": "22023",
+    "maxPlayers": "99",
+    "map": "world",
+    "portIncrement": 1
+  },
+  "query": "ut3"
+}

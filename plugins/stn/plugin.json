@@ -1,0 +1,58 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "stn",
+  "name": "STN Dedicated Server",
+  "description": "🧩 WindowsGSM plugin for supporting Survive the Nights Dedicated Server",
+  "author": "Geekbee",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/GeekbeeGER/WindowsGSM.STN",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#9eff99",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (GeekbeeGER/WindowsGSM.STN)",
+      "url": "https://github.com/GeekbeeGER/WindowsGSM.STN",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1502300/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1502300"
+  },
+  "run": {
+    "exe": "STN_Dedicated_Server.exe",
+    "args": [
+      "-port={port}",
+      "-name={name}",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "16",
+    "map": "dedicated",
+    "additional": "-nographics -steamclientlaunch",
+    "portIncrement": 2
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "darkandlight",
+  "name": "Dark & Light",
+  "description": "WindowsGSM plugin that adds support for Dark & Light dedicated servers.",
+  "author": "1stian",
+  "version": "1.1.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/1stian/WindowsGSM.DarkAndLight",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#c0883e",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (1stian/WindowsGSM.DarkAndLight)",
+      "url": "https://github.com/1stian/WindowsGSM.DarkAndLight",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/630230/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "630230"
+  },
+  "run": {
+    "exe": "DNL/Binaries/Win64/DNLServer.exe",
+    "args": [
+      "[{map}?listen][?MultiHome={ip}][?Port={port}]?{paramRaw}",
+      "-server",
+      "-log"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27016",
+    "maxPlayers": "70",
+    "map": "DNL_ALL",
+    "additional": "ServerPassword=PASSWORD?ServerAdminPassword=MYADMINPASSWORD",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

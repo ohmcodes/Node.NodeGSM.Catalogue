@@ -1,0 +1,57 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "wreckfest2",
+  "name": "Wreckfest2 Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Wreckfest2 Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.Wreckfest2",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.Wreckfest2)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.Wreckfest2",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/3519390/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "3519390"
+  },
+  "run": {
+    "exe": "Wreckfest2.exe",
+    "args": [
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "30100",
+    "queryPort": "27015",
+    "maxPlayers": "16",
+    "map": "747",
+    "additional": "--server --save-dir=d:\\MyServer",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

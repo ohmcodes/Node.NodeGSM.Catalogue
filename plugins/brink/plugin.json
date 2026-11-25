@@ -1,0 +1,72 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "brink",
+  "name": "BRINK Dedicated Server",
+  "description": "WindowsGSM plugin for supporting BRINK Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.1.1",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.Brink",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.Brink)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.Brink",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "brink.exe",
+    "args": [
+      "+set",
+      "si_name",
+      "{name}",
+      "+set",
+      "net_ip",
+      "{ip}",
+      "+set",
+      "net_serverPort",
+      "{port}",
+      "+set",
+      "net_serverPortMaster",
+      "{queryPort}",
+      "+set",
+      "net_serverDedicated",
+      "1",
+      "+set",
+      "fs_savepath",
+      "./Save",
+      "+set",
+      "si_maxPlayers",
+      "{maxPlayers}",
+      "+set",
+      "si_maxPlayersHuman",
+      "{maxPlayers}{paramRaw}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "maxPlayers": "16",
+    "map": "Dedicated",
+    "additional": "+set exec_maxThreads 1 +set net_serverPortAuth 8766 +exec autoexec.cfg",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "satisfactoryexperimentalserver",
+  "name": "Satisfactory Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Satisfactory Dedicated Server 1.0 and above.",
+  "author": "Sarpendon",
+  "version": "1.1.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Sarpendon/WindowsGSM.SatisfactoryExperimentalServer",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#8802db",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Sarpendon/WindowsGSM.SatisfactoryExperimentalServer)",
+      "url": "https://github.com/Sarpendon/WindowsGSM.SatisfactoryExperimentalServer",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "Engine/Binaries/Win64/FactoryServer-Win64-Shipping.exe",
+    "args": [
+      "FactoryGame",
+      "{param}",
+      "-Port={port}",
+      "-ServerQueryPort={queryPort}",
+      "-Multihome={ip}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "15777",
+    "maxPlayers": "4",
+    "map": "Dedicated",
+    "additional": "-log -unattended -newconsole",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

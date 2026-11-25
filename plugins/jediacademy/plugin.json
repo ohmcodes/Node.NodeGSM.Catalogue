@@ -1,0 +1,57 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "jediacademy",
+  "name": "JediAcademy Dedicated Server",
+  "description": "WindowsGSM plugin for supporting JediAcademy Dedicated Server",
+  "author": "MuchLive - Twitch.Tv/Much_Live",
+  "version": "1.0.1",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.JediAcademy",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.JediAcademy)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.JediAcademy",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/6020/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "6020"
+  },
+  "run": {
+    "exe": "jampDed.exe",
+    "args": [
+      "{param}"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "29060",
+    "queryPort": "29070",
+    "maxPlayers": "10",
+    "map": "Dedicated",
+    "additional": "+set dedicated 1 +exec server.cfg",
+    "portIncrement": 11
+  },
+  "query": "a2s"
+}

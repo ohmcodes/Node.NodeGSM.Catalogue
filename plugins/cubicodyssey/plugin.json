@@ -1,0 +1,59 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "cubicodyssey",
+  "name": "Cubic Odyssey Dedicated Server",
+  "description": "WindowsGSM plugin for supporting CubicOdyssey Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.CubicOdyssey",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.CubicOdyssey)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.CubicOdyssey",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/3858450/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "3858450"
+  },
+  "run": {
+    "exe": "server/CubicOdysseyServer.exe",
+    "args": [
+      "-MaxNumPlayers={maxPlayers}",
+      "-Port={port}",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27001",
+    "queryPort": "27002",
+    "maxPlayers": "16",
+    "map": "Dedicated",
+    "additional": "-Gamemode = adventure",
+    "portIncrement": 99
+  },
+  "query": "a2s"
+}

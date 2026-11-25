@@ -1,0 +1,56 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "cryofall",
+  "name": "CryoFall Dedicated Server",
+  "description": "WindowsGSM plugin for supporting CryoFall Dedicated Server",
+  "author": "werewolf2150",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/werewolf2150/WindowsGSM.CryoFall",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34c9ec",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (werewolf2150/WindowsGSM.CryoFall)",
+      "url": "https://github.com/werewolf2150/WindowsGSM.CryoFall",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1061710/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1061710"
+  },
+  "run": {
+    "exe": "Binaries/Server/launch.bat",
+    "args": [
+      "-batchmode"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "6000",
+    "queryPort": "6100",
+    "maxPlayers": "100",
+    "map": "map",
+    "portIncrement": 10
+  },
+  "query": "a2s"
+}

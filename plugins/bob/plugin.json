@@ -1,0 +1,62 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "bob",
+  "name": "Beasts of Bermuda Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Beasts of Bermuda Dedicated Server",
+  "author": "kessef",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.BoB",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.BoB)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.BoB",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/882430/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "882430"
+  },
+  "run": {
+    "exe": "WindowsServer/BeastsOfBermuda/Binaries/Win64/BeastsOfBermudaServer.exe",
+    "args": [
+      "-Port={port}",
+      "-QueryPort={queryPort}",
+      "-nosteamclient",
+      "-game",
+      "-server",
+      "-log"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27020",
+    "maxPlayers": "32",
+    "map": "Forest_Island",
+    "additional": "-GameMode Life_Cycle -MapName Forest_Island -SessionName My_awesome_server -NumPlayers 32",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

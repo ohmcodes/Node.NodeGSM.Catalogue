@@ -1,0 +1,61 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "soulmaskdlc",
+  "name": "Soulmask Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Soulmask Dedicated Server",
+  "author": "Phisten",
+  "version": "1.3.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Phisten/WindowsGSM.Soulmask.DLC",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#1e8449",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Phisten/WindowsGSM.Soulmask.DLC)",
+      "url": "https://github.com/Phisten/WindowsGSM.Soulmask.DLC",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/3017310/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "3017310"
+  },
+  "run": {
+    "exe": "WS/Binaries/Win64/WSServer-Win64-Shipping.exe",
+    "args": [
+      "{map}",
+      "-SteamServerName={name}",
+      "-MaxPlayers={maxPlayers}",
+      "-Port={port}",
+      "-QueryPort={queryPort}",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "8777",
+    "queryPort": "27015",
+    "maxPlayers": "10",
+    "map": "DLC_Level01_Main",
+    "additional": "-UTF8Output -forcepassthrough -server -log -EchoPort=18888 -pve -saving=300 -backup=900",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

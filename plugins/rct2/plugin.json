@@ -1,0 +1,49 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "rct2",
+  "name": "RCT2 Dedicated Server",
+  "description": "WindowsGSM plugin for supporting RCT2",
+  "author": "Andy",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Kickbut101/WindowsGSM.RCT2",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#800080",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Kickbut101/WindowsGSM.RCT2)",
+      "url": "https://github.com/Kickbut101/WindowsGSM.RCT2",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "openrct2.exe",
+    "args": [
+      "{param}"
+    ],
+    "stdin": true,
+    "stopCommand": "exit"
+  },
+  "defaults": {
+    "port": "11753",
+    "queryPort": "11753",
+    "maxPlayers": "8",
+    "map": "DefaultWorld",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

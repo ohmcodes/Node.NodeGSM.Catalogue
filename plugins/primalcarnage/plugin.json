@@ -1,0 +1,55 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "primalcarnage",
+  "name": "Primal Carnage: Extinction Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Primal Carnage: Extinction Dedicated Server",
+  "author": "MaltronCraft",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/MaltronCraft/WindowsGSM.PrimalCarnage",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (MaltronCraft/WindowsGSM.PrimalCarnage)",
+      "url": "https://github.com/MaltronCraft/WindowsGSM.PrimalCarnage",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/336400/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "336400"
+  },
+  "run": {
+    "exe": "Binaries/Win64/PrimalCarnageServer.exe",
+    "args": [
+      "[{map}][?MultiHome={ip}][?Port={port}][?QueryPort={queryPort}]?{paramRaw}?"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "75",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

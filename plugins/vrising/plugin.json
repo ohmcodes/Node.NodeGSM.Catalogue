@@ -1,0 +1,85 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "vrising",
+  "name": "V Rising Dedicated Server",
+  "description": "WindowsGSM plugin for supporting V Rising Dedicated Server",
+  "author": "Sarpendon",
+  "version": "1.1.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Sarpendon/WindowsGSM.VRising",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#8802db",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Sarpendon/WindowsGSM.VRising)",
+      "url": "https://github.com/Sarpendon/WindowsGSM.VRising",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1829350/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1829350"
+  },
+  "run": {
+    "exe": "VRisingServer.exe",
+    "args": [
+      [
+        "-saveName",
+        "{map}"
+      ],
+      [
+        "-address",
+        "{ip}"
+      ],
+      [
+        "-serverName",
+        "{name}"
+      ],
+      [
+        "-password",
+        "{gslt}"
+      ],
+      [
+        "-maxUsers",
+        "{maxPlayers}"
+      ],
+      [
+        "-gamePort",
+        "{port}"
+      ],
+      [
+        "-queryPort",
+        "{queryPort}"
+      ],
+      "{param}"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "9876",
+    "queryPort": "9877",
+    "maxPlayers": "10",
+    "map": "world1",
+    "additional": "-maxAdmins 4 -persistentDataPath \".\\save-data\"",
+    "portIncrement": 2
+  },
+  "query": "a2s",
+  "gslt": true
+}

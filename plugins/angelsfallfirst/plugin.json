@@ -1,0 +1,57 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "angelsfallfirst",
+  "name": "Angels Fall First Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Angels Fall First Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.AngelsFallFirst",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#1e4359",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.AngelsFallFirst)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.AngelsFallFirst",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/407480/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "407480"
+  },
+  "run": {
+    "exe": "Binaries/Win64/AFFGameServer.exe",
+    "args": [
+      "{map}?MaxPlayers={maxPlayers}",
+      "-multihome={ip}",
+      "-Port={port}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "2",
+    "map": "AFF-Ixion",
+    "additional": "-seekfreeloadingserver"
+  },
+  "query": "a2s"
+}

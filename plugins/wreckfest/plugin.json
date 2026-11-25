@@ -1,0 +1,64 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "wreckfest",
+  "name": "Wreckfest Dedicated Server",
+  "description": "U0001f9e9 WindowsGSM plugin that provides Wreckfest Dedicated server support!",
+  "author": "Soul",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Soulflare3/WindowsGSM.Wreckfest",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#7a0101",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Soulflare3/WindowsGSM.Wreckfest)",
+      "url": "https://github.com/Soulflare3/WindowsGSM.Wreckfest",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/361580/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "361580"
+  },
+  "run": {
+    "exe": "Wreckfest_x64.exe",
+    "args": [
+      "-s",
+      "server_config=server_config.cfg",
+      "-server_set",
+      "server_name={name}",
+      "max_players={maxPlayers}",
+      "game_port={port}",
+      "query_port={queryPort}",
+      "track={map}",
+      "{param}"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "33540",
+    "queryPort": "27016",
+    "maxPlayers": "24",
+    "map": "speedway2_demolition_arena",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

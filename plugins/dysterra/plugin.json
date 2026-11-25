@@ -1,0 +1,59 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "dysterra",
+  "name": "Dysterra Dedicated Server WGSM",
+  "description": "WindowsGSM plugin for supporting Dysterra Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.Dysterra",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#ffa500",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.Dysterra)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.Dysterra",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2214780/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2214780"
+  },
+  "run": {
+    "exe": "Dysterra/Binaries/Win64/DysterraServer-Win64-Shipping.exe",
+    "args": [
+      "{param}",
+      "-log",
+      "-customserver",
+      "-QueryPort={queryPort}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "maxPlayers": "20",
+    "map": "world",
+    "additional": "-rcon=127.0.0.1 -rconport=27017 -rconpasswd=changeme"
+  },
+  "query": "a2s"
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "assettocorsacompetizione",
+  "name": "Assetto Corsa Competizione Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Assetto Corsa Competizione Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.AssettoCorsaCompetizione",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#e11212",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.AssettoCorsaCompetizione)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.AssettoCorsaCompetizione",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1430110/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1430110"
+  },
+  "run": {
+    "exe": "server/accServer.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "9600",
+    "queryPort": "9601",
+    "maxPlayers": "18",
+    "map": "monza_2019"
+  },
+  "query": "a2s"
+}

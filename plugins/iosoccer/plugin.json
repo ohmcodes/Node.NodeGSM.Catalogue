@@ -1,0 +1,57 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "iosoccer",
+  "name": "IOSoccer Dedicated Server",
+  "description": "WindowsGSM plugin for supporting IOSoccer Dedicated Server",
+  "author": "GeekbeeGER",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/GeekbeeGER/WindowsGSM.IOSoccer",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (GeekbeeGER/WindowsGSM.IOSoccer)",
+      "url": "https://github.com/GeekbeeGER/WindowsGSM.IOSoccer",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/673990/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "673990"
+  },
+  "run": {
+    "exe": "srcds.exe",
+    "args": [
+      "-batchmode",
+      "server"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "2515",
+    "queryPort": "27018",
+    "maxPlayers": "32",
+    "map": "8v8_vienna",
+    "additional": "-console -game iosoccer -condebug -port 27018 +fps_max 500 -tickrate 100 +map 8v8_vienna",
+    "portIncrement": 10
+  }
+}

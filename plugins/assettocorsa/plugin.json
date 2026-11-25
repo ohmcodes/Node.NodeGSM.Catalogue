@@ -1,0 +1,52 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "assettocorsa",
+  "name": "Assetto Corsa Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Assetto Corsa Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.AssettoCorsa",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#e11212",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.AssettoCorsa)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.AssettoCorsa",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/302550/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "302550"
+  },
+  "run": {
+    "exe": "acServer.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "9600",
+    "queryPort": "9601",
+    "maxPlayers": "18",
+    "map": "magione"
+  },
+  "query": "a2s"
+}

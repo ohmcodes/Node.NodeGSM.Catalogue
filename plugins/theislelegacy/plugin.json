@@ -1,0 +1,61 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "theislelegacy",
+  "name": "The Isle Legacy Dedicated Server",
+  "description": "WindowsGSM plugin for supporting TheIsle Legacy Dedicated Server",
+  "author": "MENIX",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/menix1337/WindowsGSM.TheIsleLegacy",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (menix1337/WindowsGSM.TheIsleLegacy)",
+      "url": "https://github.com/menix1337/WindowsGSM.TheIsleLegacy",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/412680/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "412680"
+  },
+  "run": {
+    "exe": "TheIsle/Binaries/Win64/TheIsleServer-Win64-Shipping.exe",
+    "args": [
+      "-Port={port}",
+      "-QueryPort={queryPort}",
+      "-nosteamclient",
+      "-game",
+      "-server",
+      "-log"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "6777",
+    "queryPort": "6000",
+    "maxPlayers": "150",
+    "map": "Isle V3",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

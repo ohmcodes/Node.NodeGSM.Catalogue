@@ -1,0 +1,78 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "tf2_64bit",
+  "name": "Team Fortress 2 64bit Dedicated Server",
+  "description": "WindowsGSM plugin for supporting TF2 using 64bit Dedicated Server",
+  "author": "Raziel7893",
+  "version": "1.1.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.TF2_64bit",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.TF2_64bit)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.TF2_64bit",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/232250/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "232250"
+  },
+  "run": {
+    "exe": "srcds_win64.exe",
+    "args": [
+      "-console",
+      [
+        "-game",
+        "tf"
+      ],
+      [
+        "-ip",
+        "{ip}"
+      ],
+      [
+        "-port",
+        "{port}"
+      ],
+      [
+        "+sv_setsteamaccount",
+        "{gslt}"
+      ],
+      "{param}",
+      [
+        "+map",
+        "{map}"
+      ]
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27015",
+    "maxPlayers": "32",
+    "map": "cp_badlands",
+    "additional": "-tickrate 64"
+  },
+  "query": "a2s",
+  "gslt": true
+}

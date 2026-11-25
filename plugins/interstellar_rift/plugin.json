@@ -1,0 +1,56 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "interstellar_rift",
+  "name": "interstellar_rift",
+  "description": "🧩 WindowsGSM plugin for supporting Interstellar Rift Dedicated Server",
+  "author": "Tempus Thales",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/tempusthales/WindowsGSM.interstellar_rift",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#0a7a04",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (tempusthales/WindowsGSM.interstellar_rift)",
+      "url": "https://github.com/tempusthales/WindowsGSM.interstellar_rift",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/363360/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "363360"
+  },
+  "run": {
+    "exe": "IR.exe",
+    "args": [
+      "-port={port}",
+      "-name={name}",
+      "{param}"
+    ]
+  },
+  "defaults": {
+    "port": "27017",
+    "queryPort": "27016",
+    "maxPlayers": "64",
+    "map": "empty",
+    "portIncrement": 2
+  },
+  "query": "a2s"
+}

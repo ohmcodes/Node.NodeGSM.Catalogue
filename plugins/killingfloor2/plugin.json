@@ -1,0 +1,60 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "killingfloor2",
+  "name": "Killing Floor 2 Dedicated Server",
+  "description": "WindowsGSM plugin for supporting KillingFloor2 Dedicated Server",
+  "author": "Jamie96ITS",
+  "version": "1.1.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Jamie96ITS/WindowsGSM.KillingFloor2",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#ff0000",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Jamie96ITS/WindowsGSM.KillingFloor2)",
+      "url": "https://github.com/Jamie96ITS/WindowsGSM.KillingFloor2",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/232130/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "232130"
+  },
+  "run": {
+    "exe": "Binaries/win64/kfserver.exe",
+    "args": [
+      "{map}",
+      "-MultiHome={ip}",
+      "-Port={port}",
+      "-QueryPort={queryPort}",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "maxPlayers": "6",
+    "map": "kf-bioticslab",
+    "additional": "?adminpassword=admin",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

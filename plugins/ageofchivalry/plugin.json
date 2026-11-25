@@ -1,0 +1,70 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "ageofchivalry",
+  "name": "Age of Chivalry Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Age of Chivalry Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.AgeOfChivalry",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#d35400",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.AgeOfChivalry)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.AgeOfChivalry",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/17515/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "17515"
+  },
+  "run": {
+    "exe": "srcds.exe",
+    "args": [
+      [
+        "+maxplayers",
+        "{maxPlayers}"
+      ],
+      [
+        "-port",
+        "{port}"
+      ],
+      [
+        "+ip",
+        "{ip}"
+      ],
+      [
+        "+map",
+        "{map}"
+      ]
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "maxPlayers": "32",
+    "map": "aoc_siege",
+    "additional": "-console -game ageofchivalry -secure -autoupdate +log on +exec server.cfg"
+  },
+  "query": "a2s"
+}

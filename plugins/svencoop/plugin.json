@@ -1,0 +1,80 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "svencoop",
+  "name": "Sven Co-op Dedicated Server",
+  "description": "Sven Co-op Dedicated Server (imported from WindowsGSM plugin)",
+  "author": "stellosartois",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/stellosartois/WindowsGSM.SvenCoop",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (stellosartois/WindowsGSM.SvenCoop)",
+      "url": "https://github.com/stellosartois/WindowsGSM.SvenCoop",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/276060/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "276060"
+  },
+  "run": {
+    "exe": "svends.exe",
+    "args": [
+      "-console",
+      "-game",
+      "svencoop",
+      [
+        "-ip",
+        "{ip}"
+      ],
+      [
+        "-port",
+        "{port}"
+      ],
+      [
+        "-maxplayers",
+        "{maxPlayers}"
+      ],
+      [
+        "+sv_setsteamaccount",
+        "{gslt}"
+      ],
+      "{param}",
+      [
+        "+map",
+        "{map}"
+      ]
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27015",
+    "maxPlayers": "24",
+    "map": "_server_start",
+    "additional": "-nocrashdialog +clientport {{clientport}}",
+    "portIncrement": 1
+  },
+  "query": "a2s",
+  "gslt": true
+}

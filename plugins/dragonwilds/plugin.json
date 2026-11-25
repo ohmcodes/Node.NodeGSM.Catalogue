@@ -1,0 +1,56 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "dragonwilds",
+  "name": "RuneScape: Dragonwilds Dedicated Server",
+  "description": "WindowsGSM plugin for supporting RuneScape: Dragonwilds Dedicated Server",
+  "author": "JoshKociemba",
+  "version": "1.0.1",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/JoshKociemba/WindowsGSM.Dragonwilds",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#c8102e",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (JoshKociemba/WindowsGSM.Dragonwilds)",
+      "url": "https://github.com/JoshKociemba/WindowsGSM.Dragonwilds",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/4019830/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "4019830"
+  },
+  "run": {
+    "exe": "RSDragonwilds/Binaries/Win64/RSDragonwildsServer-Win64-Shipping.exe",
+    "args": [
+      "-Port={port}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "7777",
+    "maxPlayers": "6",
+    "map": "Dragonwilds",
+    "additional": "-log -NoCrashDialog",
+    "portIncrement": 1
+  }
+}

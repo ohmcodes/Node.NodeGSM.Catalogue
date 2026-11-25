@@ -1,0 +1,62 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "plainsofpain",
+  "name": "Planes Of Pain Dedicated Server",
+  "description": "WindowsGSM plugin for supporting PlainsOfPain Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.PlainsOfPain",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.PlainsOfPain)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.PlainsOfPain",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/2227360/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2227360"
+  },
+  "run": {
+    "exe": "PlainsOfPain.exe",
+    "args": [
+      "-port={port}",
+      "-queryPort={queryPort}",
+      "-serverName={name}",
+      "-nographics",
+      "-batchmode",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27016",
+    "maxPlayers": "16",
+    "map": "Dedicated",
+    "additional": "-ignorecompilererrors -config configs/default.json -userdir ./save-dir",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

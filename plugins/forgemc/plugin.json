@@ -1,0 +1,46 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "forgemc",
+  "name": "Minecraft: Forge Server",
+  "description": "🧩 WindowsGSM plugin for supporting Minecraft: Forge Server",
+  "author": "dwhitacre",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/dwhitacre/WindowsGSM.ForgeMC",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#ffffff",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (dwhitacre/WindowsGSM.ForgeMC)",
+      "url": "https://github.com/dwhitacre/WindowsGSM.ForgeMC",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "forge.jar",
+    "stdin": true,
+    "stopCommand": "stop"
+  },
+  "defaults": {
+    "port": "25565",
+    "queryPort": "25565",
+    "maxPlayers": "20",
+    "map": "world",
+    "portIncrement": 1
+  },
+  "query": "ut3"
+}

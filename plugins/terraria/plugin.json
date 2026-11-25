@@ -1,0 +1,70 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "terraria",
+  "name": "Terraria Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Terraria",
+  "author": "Andy, Updated By: Ada",
+  "version": "1.1.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Kickbut101/WindowsGSM.Terraria",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#800080",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Kickbut101/WindowsGSM.Terraria)",
+      "url": "https://github.com/Kickbut101/WindowsGSM.Terraria",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "TerrariaServer.exe",
+    "args": [
+      "-config",
+      "serverconfig.txt",
+      "-savedirectory",
+      [
+        "-port",
+        "{port}"
+      ],
+      [
+        "-players",
+        "{maxPlayers}"
+      ],
+      [
+        "-ip",
+        "{ip}"
+      ],
+      [
+        "-worldname",
+        "{map}"
+      ],
+      "-secure",
+      "{param}"
+    ],
+    "stdin": true,
+    "stopCommand": "exit"
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "7777",
+    "maxPlayers": "8",
+    "map": "DefaultWorld",
+    "additional": "-autocreate 3",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

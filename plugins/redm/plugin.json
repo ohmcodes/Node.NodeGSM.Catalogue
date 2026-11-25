@@ -1,0 +1,51 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "redm",
+  "name": "Red Dead Redemption 2 Server",
+  "description": "WindowsGSM plugin for supporting Red Dead Redemption 2 Dedicated Server",
+  "author": "ByBlackDeath",
+  "version": "1.0.2",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/IOxee/WindowsGSM.RedM",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work"
+  ],
+  "color": "#fa010c",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (IOxee/WindowsGSM.RedM)",
+      "url": "https://github.com/IOxee/WindowsGSM.RedM",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "server/FXServer.exe",
+    "args": [
+      "+set",
+      "citizen_dir",
+      "{param}"
+    ],
+    "stdin": true,
+    "stopCommand": "quit"
+  },
+  "defaults": {
+    "port": "30120",
+    "queryPort": "30120",
+    "maxPlayers": "32",
+    "map": "RedM-map-one",
+    "portIncrement": 1
+  },
+  "query": "fivem"
+}

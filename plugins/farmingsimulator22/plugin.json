@@ -1,0 +1,51 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "farmingsimulator22",
+  "name": "Farming Simulator 22 Dedicated Server",
+  "description": "WindowsGSM plugin for Farming Simulator 22 Dedicated Server",
+  "author": "MeFriendos",
+  "version": "0.1.3",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/PapaGordon/WindowsGSM.FarmingSimulator22",
+  "tags": [
+    "windowsgsm-import",
+    "needs-work",
+    "steamcmd"
+  ],
+  "color": "#80b918",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (PapaGordon/WindowsGSM.FarmingSimulator22)",
+      "url": "https://github.com/PapaGordon/WindowsGSM.FarmingSimulator22",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/1248130/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1248130"
+  },
+  "run": {
+    "exe": "dedicatedServer.exe",
+    "stdin": true
+  },
+  "defaults": {
+    "port": "10823",
+    "queryPort": "10823",
+    "maxPlayers": "16",
+    "portIncrement": 1
+  }
+}

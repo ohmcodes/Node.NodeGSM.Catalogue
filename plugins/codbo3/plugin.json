@@ -1,0 +1,62 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "codbo3",
+  "name": "CallOfDuty:BlackOps3 Dedicated Server",
+  "description": "WindowsGSM plugin for supporting CodBo3 Dedicated Server",
+  "author": "raziel7893",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/Raziel7893/WindowsGSM.CodBo3",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#34ffeb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (Raziel7893/WindowsGSM.CodBo3)",
+      "url": "https://github.com/Raziel7893/WindowsGSM.CodBo3",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/545990/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "545990"
+  },
+  "run": {
+    "exe": "UnrankedServer/BlackOps3_UnrankedDedicatedServer.exe",
+    "args": [
+      "+set",
+      "fs_game",
+      "{map}",
+      "+set",
+      "live_steam_server_name",
+      "{name}",
+      "{param}"
+    ],
+    "stdin": true
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27015",
+    "maxPlayers": "16",
+    "map": "usermaps",
+    "additional": "+set sv_playlist 1 +set logfile 2 +set live_steam_server_description \"This is a test server.\" +set live_steam_server_password \"test\" +rcon_password \"test\"",
+    "portIncrement": 3
+  },
+  "query": "a2s"
+}

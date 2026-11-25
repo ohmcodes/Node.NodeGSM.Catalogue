@@ -1,0 +1,77 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "cs2",
+  "name": "Counter Strike 2 Dedicated Server",
+  "description": "WindowsGSM plugin for supporting Counter Strike 2 Dedicated Server",
+  "author": "ohmcodes",
+  "version": "2.1.1",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/ohmcodes/WindowsGSM.CS2",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#ffa500",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (ohmcodes/WindowsGSM.CS2)",
+      "url": "https://github.com/ohmcodes/WindowsGSM.CS2",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/730/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "730"
+  },
+  "run": {
+    "exe": "game/bin/win64/cs2.exe",
+    "args": [
+      "-dedicated",
+      [
+        "+hostname",
+        "{name}"
+      ],
+      [
+        "+map",
+        "{map}"
+      ],
+      [
+        "-ip",
+        "{ip}"
+      ],
+      [
+        "-port",
+        "{port}"
+      ],
+      [
+        "-maxplayers",
+        "{maxPlayers}"
+      ],
+      "{param}"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "maxPlayers": "10",
+    "map": "de_dust2",
+    "additional": "+sv_logfile 1",
+    "portIncrement": 1
+  },
+  "query": "a2s"
+}

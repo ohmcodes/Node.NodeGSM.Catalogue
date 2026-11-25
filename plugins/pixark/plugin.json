@@ -1,0 +1,55 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "pixark",
+  "name": "PixArk Dedicated Server",
+  "description": "WindowsGSM plugin for supporting ArkSurvivalAscended Dedicated Server",
+  "author": "sh1ny",
+  "version": "1.0.0",
+  "platforms": [
+    "windows"
+  ],
+  "url": "https://github.com/sh1ny/WindowsGSM.PixArk",
+  "tags": [
+    "windowsgsm-import",
+    "steamcmd"
+  ],
+  "color": "#34c9eb",
+  "docs": [
+    {
+      "title": "Original WindowsGSM plugin (sh1ny/WindowsGSM.PixArk)",
+      "url": "https://github.com/sh1ny/WindowsGSM.PixArk",
+      "type": "unofficial",
+      "description": "Source of the converted metadata"
+    },
+    {
+      "title": "SteamDB: app info",
+      "url": "https://steamdb.info/app/824360/info/",
+      "type": "unofficial",
+      "description": "App id, depots and build history"
+    }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "824360"
+  },
+  "run": {
+    "exe": "ShooterGame/Binaries/Win64/PixARKServer.exe",
+    "args": [
+      "?listen"
+    ],
+    "stdin": false
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "maxPlayers": "10",
+    "map": "CubeWorld_Light",
+    "portIncrement": 2
+  },
+  "query": "a2s"
+}
