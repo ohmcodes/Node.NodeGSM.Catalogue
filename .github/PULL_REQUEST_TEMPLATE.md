@@ -11,6 +11,7 @@
 - [ ] Tested in NodeGSM: install -> start -> stop (or explain what I could not test)
 - [ ] No binaries or secrets; downloads come from the official source
 - [ ] `plugin.js` only if JSON can't do it (explain why):
+- [ ] Converted from a WindowsGSM C# plugin with the website converter: I worked through its TODO list (custom install / update, icon, docs)
 
 ## Tested on
 Windows version / game server version / anything else reviewers should know:

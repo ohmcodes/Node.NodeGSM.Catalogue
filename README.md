@@ -1,6 +1,6 @@
 # NodeGSM Catalogue
 
-The plugin list of [NodeGSM](https://github.com/ohmcodes/Node.WGSM2026). Every game server NodeGSM can manage is a **plugin**: one folder in [`plugins/`](plugins). **Everyone is welcome to add a plugin or fix an outdated one** with a pull request ([CONTRIBUTING.md](CONTRIBUTING.md)).
+The plugin list of [NodeGSM](https://github.com/ohmcodes/Node.NodeGSM). Every game server NodeGSM can manage is a **plugin**: one folder in [`plugins/`](plugins). **Everyone is welcome to add a plugin or fix an outdated one** with a pull request ([CONTRIBUTING.md](CONTRIBUTING.md)).
 
 This repository is independent: it needs only Node.js 18+, not NodeGSM and not Electron.
 
@@ -34,6 +34,9 @@ The catalogue is published as plain files on GitHub Pages (a CDN, free, nothing 
 
 Published address (after enabling GitHub Pages, see below): `https://ohmcodes.github.io/Node.NodeGSM.Catalogue/`
 
+### Migrating from WindowsGSM
+The website has a converter that turns the C# file of a WindowsGSM plugin into a `plugin.json` + README and can walk you through the pull request (or send it to the owners for approval). What converts and what does not: [CONTRIBUTING.md](CONTRIBUTING.md#migrating-a-windowsgsm-c-plugin).
+
 ### Who reads it
 
 - **NodeGSM** downloads the index **once**, keeps it on disk and only asks `catalogue.json` again when the cached copy is older than a day or the user presses *Refresh*. If the hash is unchanged nothing else is downloaded. Plugins are installed from the zip after the sha256 check, and the cached list keeps working offline.
@@ -51,7 +54,7 @@ Pull requests run validation and the tests only; nothing is deployed from a PR.
 If the deploy job fails at `actions/configure-pages` with **Get Pages site failed** / **Not Found**, a repository administrator must enable Pages in **Settings → Pages** and select **GitHub Actions** as the source. Then rerun the failed jobs from the Actions run, or run the Catalogue workflow on `main`. The workflow's `GITHUB_TOKEN` cannot enable Pages itself.
 
 ## Related repositories
-- **NodeGSM** (the app): https://github.com/ohmcodes/Node.WGSM2026
+- **NodeGSM** (the app): https://github.com/ohmcodes/Node.NodeGSM
 - **Website**: https://github.com/ohmcodes/Node.NodeGSM.Website
 
 ## License

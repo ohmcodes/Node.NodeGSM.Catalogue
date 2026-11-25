@@ -222,13 +222,13 @@ Bundled examples (check what your game version prints before copying):
 | Game | Metric | How |
 |---|---|---|
 | `mc` | `tps` | `rcon:tps` - **Paper / Spigot / Purpur only** (`/tps`, the first value is the last minute). Needs `enable-rcon=true` + `rcon.password` in `server.properties` |
-| `mc` | `mspt` (ms, lower is better) | `rcon:tick query` - **vanilla 1.20.3+** (`/tick query`, "Average time per tick"). 50 ms = 20 TPS. Older vanilla has no tick command: use a mod / Spark (see [docs/GUIDE-metrics.md](https://github.com/ohmcodes/Node.WGSM2026/blob/main/docs/GUIDE-metrics.md)) |
+| `mc` | `mspt` (ms, lower is better) | `rcon:tick query` - **vanilla 1.20.3+** (`/tick query`, "Average time per tick"). 50 ms = 20 TPS. Older vanilla has no tick command: use a mod / Spark (see [docs/GUIDE-metrics.md](https://github.com/ohmcodes/Node.NodeGSM/blob/main/docs/GUIDE-metrics.md)) |
 | `csgo` | `fps` | `rcon:stats` - the Source `stats` command (CPU / NetIn / NetOut / Uptime / Maps / **FPS** / Players); srcds has no stdin, so RCON is used. Needs `rcon_password` in `server.cfg`. `tickTarget` 64 (raise it for 128-tick servers) |
 | `rust` | `fps` | console `fps` (output like `60 FPS`); Rust's console must be reachable (stdin) |
 Other Source games (tf2, css, gmod ...) can use the same `stats` pattern as csgo; they currently show Latency only.
 
 ### Optional fields for clusters, backups, events, logging, consoles, update and auto-clear
-All of these are optional. They are validated (by NodeGSM `src/main/plugins.js`, mirrored in `scripts/lib/validate.js`), described in [`plugin.schema.json`](plugins/plugin.schema.json) and carried onto the game object. All of them are used by the app (see [FEATURES.md](https://github.com/ohmcodes/Node.WGSM2026/blob/main/FEATURES.md)) except `logging.logFiles`. Ids inside these lists (`events`, `backup.presets`, `logging.patterns`, `consoles`) use letters, digits, `_` and `-` and must be unique within their list. **Every path must be relative to the server files folder, without `..`, never absolute.**
+All of these are optional. They are validated (by NodeGSM `src/main/plugins.js`, mirrored in `scripts/lib/validate.js`), described in [`plugin.schema.json`](plugins/plugin.schema.json) and carried onto the game object. All of them are used by the app (see [FEATURES.md](https://github.com/ohmcodes/Node.NodeGSM/blob/main/FEATURES.md)) except `logging.logFiles`. Ids inside these lists (`events`, `backup.presets`, `logging.patterns`, `consoles`) use letters, digits, `_` and `-` and must be unique within their list. **Every path must be relative to the server files folder, without `..`, never absolute.**
 ```json
 "cluster": {
   "protectedConfigKeys": ["Port", "RCONPort"],
@@ -300,7 +300,7 @@ Auto-clear deletes only files (never folders), never follows links, never leaves
   ]
 }
 ```
-`protectedConfigKeys` apply to **every** config file of the game, `configs[].protect` only to that file. During a cluster update every `configs[].path` is skipped automatically, so only list the saves and per-server data in `preserve`. Always declare the config `format` correctly: it decides how the file is merged (`ini`, `properties`, `cfg`, `yaml`, `json` are key-aware; `text` and `xml` are copied whole except `NGSM:ignore` lines). Bundled examples: `mc`, `arkse`, `rust`. See [docs/GUIDE-clusters.md](https://github.com/ohmcodes/Node.WGSM2026/blob/main/docs/GUIDE-clusters.md).
+`protectedConfigKeys` apply to **every** config file of the game, `configs[].protect` only to that file. During a cluster update every `configs[].path` is skipped automatically, so only list the saves and per-server data in `preserve`. Always declare the config `format` correctly: it decides how the file is merged (`ini`, `properties`, `cfg`, `yaml`, `json` are key-aware; `text` and `xml` are copied whole except `NGSM:ignore` lines). Bundled examples: `mc`, `arkse`, `rust`. See [docs/GUIDE-clusters.md](https://github.com/ohmcodes/Node.NodeGSM/blob/main/docs/GUIDE-clusters.md).
 
 #### Example: backup presets (Minecraft Java, `plugins/mc/plugin.json`)
 ```json
@@ -313,7 +313,7 @@ Auto-clear deletes only files (never folders), never follows links, never leaves
   "exclude": ["logs", "crash-reports", "*.tmp"]
 }
 ```
-Also shipped: `csgo` (configs, addons, custom content), `rust` (server data, Oxide), `palworld` and `arkse` (saves, settings). Tips: put the folders players care about (saves, configs) in presets and keep `exclude` for logs, crash dumps and caches. Presets only name paths - absolute paths and `..` are rejected. See [docs/GUIDE-backups.md](https://github.com/ohmcodes/Node.WGSM2026/blob/main/docs/GUIDE-backups.md).
+Also shipped: `csgo` (configs, addons, custom content), `rust` (server data, Oxide), `palworld` and `arkse` (saves, settings). Tips: put the folders players care about (saves, configs) in presets and keep `exclude` for logs, crash dumps and caches. Presets only name paths - absolute paths and `..` are rejected. See [docs/GUIDE-backups.md](https://github.com/ohmcodes/Node.NodeGSM/blob/main/docs/GUIDE-backups.md).
 
 ## Complete example (every optional field)
 All fields in one valid `plugin.json` (compare [`plugins/_template`](plugins/_template), which you copy to start). Leave out whatever the game does not need - everything except `id`, `name`, `install` and `run` is optional for local plugins. Where each field is explained: listing and `docs` above, `install` / `run` / `defaults` / `query` above, `configs` (+ `protect`), `logs`, `metrics` (incl. `kind: "tick"` and `rcon:` sources) above, and `cluster`, `backup`, `events`, `logging`, `consoles`, `update.validateArgs`, `files.autoClear` in the optional-fields section.
@@ -414,6 +414,9 @@ module.exports = {
 };
 ```
 Real examples: [`plugins/mc`](plugins/mc), [`plugins/mcbe`](plugins/mcbe), [`plugins/vts`](plugins/vts), [`plugins/gta5`](plugins/gta5).
+
+## Migrating a WindowsGSM C# plugin
+The website converter (`/convert.html`, Website repository) writes a `plugin.json` from a WindowsGSM plugin: metadata, `AppId` / `SteamCMDAgent`, `StartPath`, `AllowsEmbedConsole`, default ports / map / players, `QueryMethod`, and the `Start()` command line as `run.args` templates (`ServerPort` -> `{port}`, `ServerQueryPort` -> `{queryPort}`, `ServerMap` -> `{map}`, `ServerMaxPlayer` -> `{maxPlayers}`, `ServerName` -> `{name}`, `ServerIP` -> `{ip}`, `ServerParam` -> `{param}`, `ServerGSLT` -> `{gslt}`). Custom `Install()` / `Update()` / `GetLocalBuild()` / `GetRemoteBuild()` / `CreateServerCFG()` code is **not** converted: it becomes a TODO that points at install steps or the `plugin.js` hooks above. When the placeholders or run fields change, update `public/convert-cs.js` in the Website repository (its tests compare the placeholders with this file).
 
 ## How the catalogue is published
 `npm run build` turns `plugins/` into static files in `public/` (CI does this on every merge to `main` and publishes them with GitHub Pages):
