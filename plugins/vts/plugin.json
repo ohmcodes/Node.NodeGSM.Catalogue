@@ -1,0 +1,53 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "vts",
+  "name": "Vintage Story Dedicated Server",
+  "description": "Dedicated server support for Vintage Story. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "",
+  "tags": ["download"],
+  "docs": [
+    { "title": "Vintage Story: dedicated server guide", "url": "https://wiki.vintagestory.at/Guide:Dedicated_Server", "type": "official", "description": "Official wiki" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "steps": [
+      {
+        "type": "script"
+      }
+    ]
+  },
+  "run": {
+    "exe": "VintageStoryServer.exe",
+    "args": ["{param}"]
+  },
+  "defaults": {
+    "port": "42420",
+    "queryPort": "42420",
+    "map": "default",
+    "maxPlayers": "16",
+    "additional": "--dataPath ./data"
+  },
+  "query": null,
+  "configs": [
+    {
+      "id": "serverconfig",
+      "name": "serverconfig.json",
+      "path": "data/serverconfig.json",
+      "format": "json",
+      "description": "Server name, port, password, world config"
+    }
+  ],
+  "logs": [
+    {
+      "id": "server-main",
+      "name": "server-main.txt",
+      "path": "data/Logs/server-main.txt"
+    }
+  ]
+}

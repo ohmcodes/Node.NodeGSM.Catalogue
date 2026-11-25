@@ -1,0 +1,46 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "dayz",
+  "name": "DayZ Dedicated Server",
+  "description": "Dedicated server support for DayZ. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/223350/info/",
+  "tags": ["steamcmd"],
+  "docs": [
+    { "title": "DayZ server configuration", "url": "https://community.bistudio.com/wiki/DayZ:Server_Configuration", "type": "official", "description": "Bohemia Interactive wiki" },
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/223350/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "223350"
+  },
+  "run": {
+    "exe": "DayZServer_x64.exe",
+    "args": ["-ip={ip}", "-port={port}", "{param}"]
+  },
+  "defaults": {
+    "port": "2302",
+    "queryPort": "27016",
+    "map": "dayzOffline.chernarusplus",
+    "maxPlayers": "60",
+    "additional": "-config=serverDZ.cfg -doLogs -adminLog -netLog",
+    "portIncrement": 2
+  },
+  "query": "a2s",
+  "configs": [
+    {
+      "id": "serverdz",
+      "name": "serverDZ.cfg",
+      "path": "serverDZ.cfg",
+      "format": "cfg",
+      "description": "Hostname, password, max players, mission template"
+    }
+  ]
+}

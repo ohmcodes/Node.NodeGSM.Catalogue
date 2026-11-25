@@ -1,0 +1,43 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "avorion",
+  "name": "Avorion Dedicated Server",
+  "description": "Dedicated server support for Avorion. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/565060/info/",
+  "tags": ["steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/565060/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "565060"
+  },
+  "run": {
+    "exe": "bin/AvorionServer.exe",
+    "args": [
+      ["--galaxy-name", "{map}"],
+      ["--server-name", "{name}"],
+      ["--ip", "{ip}"],
+      ["--port", "{port}"],
+      ["--query-port", "{queryPort}"],
+      ["--max-players", "{maxPlayers}"],
+      "{param}"
+    ]
+  },
+  "defaults": {
+    "port": "27000",
+    "queryPort": "27003",
+    "map": "avorion_galaxy",
+    "maxPlayers": "10",
+    "additional": "--admin avorion_admin"
+  },
+  "query": "a2s"
+}

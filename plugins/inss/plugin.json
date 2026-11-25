@@ -1,0 +1,35 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "inss",
+  "name": "Insurgency: Sandstorm Dedicated Server",
+  "description": "Dedicated server support for Insurgency: Sandstorm. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/581330/info/",
+  "tags": ["unreal", "steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/581330/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "581330"
+  },
+  "run": {
+    "exe": "Insurgency/Binaries/Win64/InsurgencyServer-Win64-Shipping.exe",
+    "args": ["[{map}]{paramRaw}[?MaxPlayers={maxPlayers}]", "-Port={port}", "-QueryPort={queryPort}", "-MultiHome={ip}", "-hostname={name}", "-log"]
+  },
+  "defaults": {
+    "port": "27102",
+    "queryPort": "27131",
+    "map": "Oilfield",
+    "maxPlayers": "28",
+    "additional": "?Scenario=Scenario_Refinery_Push_Security"
+  },
+  "query": "a2s"
+}

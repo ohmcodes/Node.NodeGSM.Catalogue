@@ -1,0 +1,35 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "bw",
+  "name": "BlackWake Dedicated Server",
+  "description": "Dedicated server support for BlackWake. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/423410/info/",
+  "tags": ["unity", "steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/423410/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "423410"
+  },
+  "run": {
+    "exe": "BlackwakeServer.exe",
+    "args": ["-batchmode", "-nographics", "{param}"]
+  },
+  "defaults": {
+    "port": "25001",
+    "queryPort": "25002",
+    "map": "Island",
+    "maxPlayers": "54",
+    "additional": ""
+  },
+  "query": null
+}

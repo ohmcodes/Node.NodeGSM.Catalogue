@@ -1,0 +1,17 @@
+# Unturned Dedicated Server
+
+Dedicated server support for Unturned. Install, run, configure and monitor it from NodeGSM.
+
+## Install
+Installed with SteamCMD, app id [1110390](https://steamdb.info/app/1110390/info/).
+
+## Defaults
+| | |
+|---|---|
+| Game port | 27015 |
+| Query port | 27016 |
+| Max players | 20 |
+| Query protocol | a2s |
+
+## Contributing
+Found something outdated (exe path, ports, arguments)? Edit `plugin.json` and open a pull request - see [CONTRIBUTING.md](../../CONTRIBUTING.md).

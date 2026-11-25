@@ -1,0 +1,66 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "tf2",
+  "name": "Team Fortress 2 Dedicated Server",
+  "description": "Dedicated server support for Team Fortress 2. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/232250/info/",
+  "tags": ["source", "steamcmd"],
+  "docs": [
+    { "title": "Source Dedicated Server", "url": "https://developer.valvesoftware.com/wiki/Source_Dedicated_Server", "type": "official", "description": "Valve Developer Community" },
+    { "title": "Command line options", "url": "https://developer.valvesoftware.com/wiki/Command_Line_Options", "type": "official", "description": "Valve Developer Community" },
+    { "title": "Game Server Login Tokens (GSLT)", "url": "https://steamcommunity.com/dev/managegameservers", "type": "official", "description": "Create the token your server needs to be listed" },
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/232250/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "232250"
+  },
+  "run": {
+    "exe": "srcds.exe",
+    "stdin": false,
+    "args": [
+      "-console",
+      ["-game", "tf"],
+      ["-ip", "{ip}"],
+      ["-port", "{port}"],
+      ["-maxplayers", "{maxPlayers}"],
+      ["+sv_setsteamaccount", "{gslt}"],
+      "{param}",
+      ["+map", "{map}"]
+    ]
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27015",
+    "map": "cp_badlands",
+    "maxPlayers": "24",
+    "additional": "-nocrashdialog"
+  },
+  "query": "a2s",
+  "gslt": true,
+  "configs": [
+    {
+      "id": "server-cfg",
+      "name": "server.cfg",
+      "path": "tf/cfg/server.cfg",
+      "format": "cfg",
+      "description": "Main server config (hostname, rcon_password, ...)"
+    }
+  ],
+  "logs": [
+    {
+      "id": "server-logs",
+      "name": "Server logs",
+      "path": "tf/logs/*.log",
+      "description": "Written when \"log on\" is set in server.cfg"
+    }
+  ]
+}

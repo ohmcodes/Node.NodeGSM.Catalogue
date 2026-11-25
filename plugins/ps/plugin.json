@@ -1,0 +1,35 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "ps",
+  "name": "Post Scriptum Dedicated Server",
+  "description": "Dedicated server support for Post Scriptum. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/746200/info/",
+  "tags": ["unreal", "steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/746200/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "746200"
+  },
+  "run": {
+    "exe": "PostScriptum/Binaries/Win64/PostScriptumServer.exe",
+    "args": ["-log", "MULTIHOME={ip}", "Port={port}", "QueryPort={queryPort}", "FIXEDMAXPLAYERS={maxPlayers}", "{param}"]
+  },
+  "defaults": {
+    "port": "10027",
+    "queryPort": "10037",
+    "map": "",
+    "maxPlayers": "80",
+    "additional": "RANDOM=ALWAYS -fullcrashdump"
+  },
+  "query": "a2s"
+}

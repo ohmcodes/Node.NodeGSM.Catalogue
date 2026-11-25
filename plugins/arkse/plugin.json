@@ -1,0 +1,90 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "arkse",
+  "name": "ARK: Survival Evolved Dedicated Server",
+  "description": "Dedicated server support for ARK: Survival Evolved. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/376030/info/",
+  "tags": ["unreal", "steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "ARK dedicated server setup", "url": "https://ark.wiki.gg/wiki/Dedicated_server_setup", "type": "unofficial", "description": "ARK Wiki" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/376030/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "376030"
+  },
+  "run": {
+    "exe": "ShooterGame/Binaries/Win64/ShooterGameServer.exe",
+    "args": ["[{map}]?listen[?SessionName={name}][?MultiHome={ip}][?Port={port}][?MaxPlayers={maxPlayers}][?QueryPort={queryPort}]{paramRaw}", "-server", "-log"]
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "map": "TheIsland",
+    "maxPlayers": "16",
+    "additional": ""
+  },
+  "query": "a2s",
+  "configs": [
+    {
+      "id": "gameusersettings-ini",
+      "name": "GameUserSettings.ini",
+      "path": "ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini",
+      "format": "ini",
+      "description": "Server settings, passwords, rates",
+      "protect": ["SessionName", "ServerPassword", "ServerAdminPassword", "RCONPort", "RCONEnabled", "Port", "QueryPort"]
+    },
+    {
+      "id": "game-ini",
+      "name": "Game.ini",
+      "path": "ShooterGame/Saved/Config/WindowsServer/Game.ini",
+      "format": "ini",
+      "description": "Game rules and engram overrides"
+    }
+  ],
+  "logs": [
+    {
+      "id": "shootergame",
+      "name": "ShooterGame.log",
+      "path": "ShooterGame/Saved/Logs/ShooterGame.log"
+    }
+  ],
+  "cluster": {
+    "protectedConfigKeys": ["SessionName", "ServerAdminPassword", "RCONPort"],
+    "preserve": ["ShooterGame/Saved"],
+    "clearFolders": [
+      { "path": "ShooterGame/Saved/Logs", "pattern": "*.log", "olderThanDays": 7 }
+    ]
+  },
+  "backup": {
+    "presets": [
+      {
+        "id": "saves",
+        "name": "World saves (SavedArks)",
+        "paths": [
+          "ShooterGame/Saved/SavedArks"
+        ]
+      },
+      {
+        "id": "settings",
+        "name": "Settings",
+        "paths": [
+          "ShooterGame/Saved/Config"
+        ]
+      }
+    ],
+    "exclude": [
+      "ShooterGame/Saved/Logs",
+      "ShooterGame/Saved/Crashes",
+      "*.tmp"
+    ]
+  }
+}

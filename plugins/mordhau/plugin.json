@@ -1,0 +1,35 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "mordhau",
+  "name": "Mordhau Dedicated Server",
+  "description": "Dedicated server support for Mordhau. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/629800/info/",
+  "tags": ["unreal", "steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/629800/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "629800"
+  },
+  "run": {
+    "exe": "Mordhau/Binaries/Win64/MordhauServer-Win64-Shipping.exe",
+    "args": ["{map}", "-MultiHome={ip}", "-Port={port}", "-QueryPort={queryPort}", "-BeaconPort={port+10}", "{param}", "-log"]
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "map": "FFA_ThePit",
+    "maxPlayers": "16",
+    "additional": ""
+  },
+  "query": "a2s"
+}

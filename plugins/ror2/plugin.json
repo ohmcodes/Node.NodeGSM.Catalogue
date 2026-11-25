@@ -1,0 +1,35 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "ror2",
+  "name": "Risk of Rain 2 Dedicated Server",
+  "description": "Dedicated server support for Risk of Rain 2. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/1180760/info/",
+  "tags": ["unity", "steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/1180760/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1180760"
+  },
+  "run": {
+    "exe": "Risk of Rain 2.exe",
+    "args": ["-batchmode", "-nographics", "-silent-crashes", "{param}"]
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "map": "",
+    "maxPlayers": "4",
+    "additional": ""
+  },
+  "query": "a2s"
+}

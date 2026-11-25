@@ -1,0 +1,44 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "egs",
+  "name": "Empyrion - Galactic Survival Dedicated Server",
+  "description": "Dedicated server support for Empyrion - Galactic Survival. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/530870/info/",
+  "tags": ["steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/530870/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "530870"
+  },
+  "run": {
+    "exe": "EmpyrionLauncher.exe",
+    "args": ["-startDedi", "{param}"]
+  },
+  "defaults": {
+    "port": "30000",
+    "queryPort": "30001",
+    "map": "DediGame",
+    "maxPlayers": "8",
+    "additional": "-dedicated dedicated.yaml"
+  },
+  "query": null,
+  "configs": [
+    {
+      "id": "dedicated",
+      "name": "dedicated.yaml",
+      "path": "dedicated.yaml",
+      "format": "yaml",
+      "description": "Server name, ports, player limit"
+    }
+  ]
+}

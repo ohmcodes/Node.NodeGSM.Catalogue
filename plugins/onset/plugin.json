@@ -1,0 +1,44 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "onset",
+  "name": "Onset Dedicated Server",
+  "description": "Dedicated server support for Onset. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/1204170/info/",
+  "tags": ["steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/1204170/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1204170"
+  },
+  "run": {
+    "exe": "OnsetServer.exe",
+    "args": ["{param}"]
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "7776",
+    "map": "",
+    "maxPlayers": "100",
+    "additional": ""
+  },
+  "query": null,
+  "configs": [
+    {
+      "id": "server-config",
+      "name": "server_config.json",
+      "path": "server_config.json",
+      "format": "json",
+      "description": "Server name, ports, packages"
+    }
+  ]
+}

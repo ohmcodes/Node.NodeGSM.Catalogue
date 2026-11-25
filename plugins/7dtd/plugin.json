@@ -1,0 +1,52 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "7dtd",
+  "name": "7 Days to Die Dedicated Server",
+  "description": "Dedicated server support for 7 Days to Die. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/294420/info/",
+  "tags": ["steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "7 Days to Die: dedicated servers", "url": "https://7daystodie.fandom.com/wiki/Dedicated_Servers", "type": "unofficial", "description": "Community wiki" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/294420/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "294420"
+  },
+  "run": {
+    "exe": "7DaysToDieServer.exe",
+    "args": ["-logfile", "7DaysToDieServer_Data/output_log_dedi.txt", "-quit", "-batchmode", "-nographics", "-configfile=serverconfig.xml", "-dedicated", "{param}"]
+  },
+  "defaults": {
+    "port": "26900",
+    "queryPort": "26900",
+    "map": "Navezgane",
+    "maxPlayers": "8",
+    "additional": ""
+  },
+  "query": null,
+  "configs": [
+    {
+      "id": "serverconfig",
+      "name": "serverconfig.xml",
+      "path": "serverconfig.xml",
+      "format": "xml",
+      "description": "Server name, ports, world, game rules"
+    }
+  ],
+  "logs": [
+    {
+      "id": "output-log",
+      "name": "Server log",
+      "path": "7DaysToDieServer_Data/output_log_dedi*.txt"
+    }
+  ]
+}

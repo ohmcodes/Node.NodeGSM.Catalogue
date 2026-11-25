@@ -1,0 +1,163 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "mc",
+  "name": "Minecraft: Java Edition Server",
+  "description": "Dedicated server support for Minecraft: Java Edition. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "platforms": ["windows", "linux"],
+  "url": "",
+  "tags": ["minecraft", "java", "download"],
+  "docs": [
+    { "title": "Minecraft Java server download", "url": "https://www.minecraft.net/en-us/download/server", "type": "official" },
+    { "title": "Setting up a Minecraft server", "url": "https://minecraft.wiki/w/Tutorials/Setting_up_a_server", "type": "unofficial", "description": "Minecraft Wiki tutorial" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "steps": [
+      {
+        "type": "script"
+      },
+      {
+        "type": "write",
+        "path": "server.properties",
+        "content": "server-port={port}\nmax-players={maxPlayers}\nlevel-name={map}\nmotd={name}\nenable-query=true\nquery.port={queryPort}\n"
+      }
+    ]
+  },
+  "run": {
+    "exe": "server.jar",
+    "command": "java",
+    "stopCommand": "stop",
+    "args": ["{param}", "-jar", "server.jar", "nogui"]
+  },
+  "defaults": {
+    "port": "25565",
+    "queryPort": "25565",
+    "map": "world",
+    "maxPlayers": "20",
+    "additional": "-Xmx1024M -Xms1024M"
+  },
+  "query": "ut3",
+  "metrics": [
+    {
+      "id": "tps",
+      "name": "Server TPS",
+      "unit": "TPS",
+      "kind": "tick",
+      "source": "rcon:tps",
+      "pattern": "TPS from last[^:]*:\\s*\\D*?([0-9.]+)",
+      "intervalSec": 15,
+      "tickTarget": 20,
+      "warnBelow": 18,
+      "badBelow": 15,
+      "description": "Paper / Spigot / Purpur only (/tps, first value = last minute). Needs enable-rcon=true in server.properties."
+    },
+    {
+      "id": "mspt",
+      "name": "Average tick time",
+      "unit": "ms",
+      "kind": "tick",
+      "source": "rcon:tick query",
+      "pattern": "Average (?:time per )?tick(?: time)?:\\s*([0-9.,]+)\\s*ms",
+      "intervalSec": 15,
+      "tickTarget": 50,
+      "higherIsBetter": false,
+      "warnAbove": 40,
+      "badAbove": 50,
+      "description": "Vanilla 1.20.3+ (/tick query). 50 ms per tick = 20 TPS. Needs enable-rcon=true."
+    }
+  ],
+  "configs": [
+    {
+      "id": "server-properties",
+      "name": "server.properties",
+      "path": "server.properties",
+      "format": "properties",
+      "description": "Ports, difficulty, MOTD, whitelist, ...",
+      "protect": ["server-port", "server-ip", "query.port", "rcon.*"]
+    },
+    {
+      "id": "ops",
+      "name": "ops.json",
+      "path": "ops.json",
+      "format": "json",
+      "description": "Operators"
+    },
+    {
+      "id": "whitelist",
+      "name": "whitelist.json",
+      "path": "whitelist.json",
+      "format": "json"
+    }
+  ],
+  "logs": [
+    {
+      "id": "latest",
+      "name": "latest.log",
+      "path": "logs/latest.log"
+    }
+  ],
+  "consoles": [
+    { "id": "game", "name": "Game console", "type": "process" },
+    { "id": "rcon", "name": "RCON", "type": "rcon", "source": "rcon:{server-properties:rcon.port}:{server-properties:rcon.password}" },
+    { "id": "latest-log", "name": "latest.log", "type": "log", "source": "latest" }
+  ],
+  "files": {
+    "autoClear": [
+      { "path": "logs", "pattern": "*.log.gz", "olderThanDays": 14, "intervalMin": 1440, "default": true },
+      { "path": "crash-reports", "pattern": "*.txt", "olderThanDays": 30, "intervalMin": 1440, "default": false }
+    ]
+  },
+  "cluster": {
+    "protectedConfigKeys": ["server-port", "query.port", "rcon.*"],
+    "preserve": ["world", "world_nether", "world_the_end", "ops.json", "whitelist.json", "banned-players.json", "banned-ips.json", "usercache.json"],
+    "clearFolders": [
+      { "path": "logs", "pattern": "*.log*", "olderThanDays": 14 },
+      { "path": "crash-reports", "pattern": "*.txt", "olderThanDays": 30 }
+    ]
+  },
+  "backup": {
+    "presets": [
+      {
+        "id": "world",
+        "name": "World saves",
+        "paths": [
+          "world",
+          "world_nether",
+          "world_the_end"
+        ]
+      },
+      {
+        "id": "settings",
+        "name": "Settings and player lists",
+        "paths": [
+          "server.properties",
+          "ops.json",
+          "whitelist.json",
+          "banned-players.json",
+          "banned-ips.json",
+          "usercache.json"
+        ]
+      },
+      {
+        "id": "plugins",
+        "name": "Plugins and mods",
+        "paths": [
+          "plugins",
+          "mods",
+          "config"
+        ]
+      }
+    ],
+    "exclude": [
+      "logs",
+      "crash-reports",
+      "*.tmp"
+    ]
+  }
+}

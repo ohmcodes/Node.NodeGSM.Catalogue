@@ -1,0 +1,56 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "mcpe",
+  "name": "Minecraft: Pocket Edition Server (PocketMine-MP)",
+  "description": "Dedicated server support for Minecraft: Pocket Edition (PocketMine-MP). Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "",
+  "tags": ["minecraft", "pocketmine"],
+  "docs": [
+    { "title": "PocketMine-MP documentation", "url": "https://pmmp.readthedocs.io/", "type": "official", "description": "Official PocketMine docs" },
+    { "title": "PocketMine-MP releases", "url": "https://github.com/pmmp/PocketMine-MP/releases", "type": "official" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "manual"
+  },
+  "run": {
+    "exe": "bin/php/php.exe",
+    "stopCommand": "stop",
+    "args": ["-c", "bin/php", "PocketMine-MP.phar", "{param}"]
+  },
+  "defaults": {
+    "port": "19132",
+    "queryPort": "19132",
+    "map": "world",
+    "maxPlayers": "20",
+    "additional": ""
+  },
+  "query": "ut3",
+  "configs": [
+    {
+      "id": "pocketmine-yml",
+      "name": "pocketmine.yml",
+      "path": "pocketmine.yml",
+      "format": "yaml"
+    },
+    {
+      "id": "server-properties",
+      "name": "server.properties",
+      "path": "server.properties",
+      "format": "properties"
+    }
+  ],
+  "logs": [
+    {
+      "id": "server-log",
+      "name": "server.log",
+      "path": "server.log"
+    }
+  ]
+}

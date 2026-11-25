@@ -1,0 +1,73 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "cs",
+  "name": "Counter-Strike: 1.6 Dedicated Server",
+  "description": "Dedicated server support for Counter-Strike: 1.6. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/90/info/",
+  "tags": ["goldsource", "steamcmd"],
+  "docs": [
+    { "title": "HLDS (GoldSource dedicated server)", "url": "https://developer.valvesoftware.com/wiki/HLDS", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/90/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "steps": [
+      {
+        "type": "steamcmd",
+        "appId": "90",
+        "mod": "cstrike",
+        "repeat": 5
+      },
+      {
+        "type": "write",
+        "path": "steam_appid.txt",
+        "content": "10"
+      }
+    ]
+  },
+  "run": {
+    "exe": "hlds.exe",
+    "stdin": false,
+    "args": [
+      "-console",
+      ["-game", "cstrike"],
+      ["-ip", "{ip}"],
+      ["-port", "{port}"],
+      ["-maxplayers", "{maxPlayers}"],
+      ["+sv_setsteamaccount", "{gslt}"],
+      "{param}",
+      ["+map", "{map}"]
+    ]
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27015",
+    "map": "de_dust2",
+    "maxPlayers": "24",
+    "additional": ""
+  },
+  "query": "a2s",
+  "configs": [
+    {
+      "id": "server-cfg",
+      "name": "server.cfg",
+      "path": "cstrike/server.cfg",
+      "format": "cfg",
+      "description": "Main server config (hostname, rcon_password, ...)"
+    }
+  ],
+  "logs": [
+    {
+      "id": "server-logs",
+      "name": "Server logs",
+      "path": "cstrike/logs/*.log"
+    }
+  ]
+}

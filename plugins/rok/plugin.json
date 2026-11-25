@@ -1,0 +1,35 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "rok",
+  "name": "Reign Of Kings Dedicated Server",
+  "description": "Dedicated server support for Reign Of Kings. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/381690/info/",
+  "tags": ["unity", "steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/381690/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "381690"
+  },
+  "run": {
+    "exe": "ROK.exe",
+    "args": ["-batchmode", "-nographics", "-silent-crashes", "{param}"]
+  },
+  "defaults": {
+    "port": "7350",
+    "queryPort": "7350",
+    "map": "CrownLand",
+    "maxPlayers": "30",
+    "additional": ""
+  },
+  "query": null
+}

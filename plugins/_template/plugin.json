@@ -1,0 +1,118 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "mygame",
+  "name": "My Game Dedicated Server",
+  "description": "One or two sentences: what game, anything special about the server.",
+  "author": "your-github-name",
+  "version": "1.0.0",
+  "url": "https://store.steampowered.com/app/123456",
+  "tags": ["survival", "steamcmd"],
+  "docs": [
+    { "title": "Official dedicated server guide", "url": "https://example.com/official-guide", "type": "official", "description": "Published by the developer" },
+    { "title": "Community wiki: setting up a server", "url": "https://example.com/wiki/server", "type": "unofficial" },
+    { "title": "Video walkthrough", "url": "https://example.com/video", "type": "unofficial" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "steps": [
+      { "type": "steamcmd", "appId": "123456" },
+      { "type": "mkdir", "path": "MyGame/Saved/Config" },
+      { "type": "write", "path": "MyGame/Saved/Config/server.ini", "content": "[Server]\nName={name}\nPort={port}\n" }
+    ]
+  },
+  "run": {
+    "exe": "MyGame/Binaries/Win64/MyGameServer.exe",
+    "args": [
+      "{param}",
+      "-log",
+      ["-port", "{port}"],
+      ["-queryport", "{queryPort}"],
+      "-MaxPlayers={maxPlayers}",
+      "-ServerName={name}"
+    ]
+  },
+  "defaults": {
+    "port": "7777",
+    "queryPort": "27015",
+    "map": "",
+    "maxPlayers": "16",
+    "additional": ""
+  },
+  "query": "a2s",
+  "configs": [
+    {
+      "id": "server-ini",
+      "name": "server.ini",
+      "path": "MyGame/Saved/Config/server.ini",
+      "format": "ini",
+      "description": "Main server settings",
+      "protect": ["Port", "QueryPort", "RCONPort"]
+    },
+    {
+      "id": "admins",
+      "name": "admins.json",
+      "path": "MyGame/Saved/admins.json",
+      "format": "json",
+      "description": "Admin list",
+      "template": "templates/admins.json"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "fps",
+      "name": "Server FPS",
+      "unit": "fps",
+      "source": "console",
+      "pattern": "fps[:= ]+([0-9.]+)",
+      "command": "fps",
+      "intervalSec": 10,
+      "kind": "tick",
+      "tickTarget": 60,
+      "warnBelow": 50,
+      "badBelow": 30,
+      "description": "Optional: shown as a column on the Table and Dashboard views. kind \"tick\" also feeds the Tick header stat, dashboard tile / chart and colours (warnBelow / badBelow; use higherIsBetter false + warnAbove / badAbove for times). source can also be \"rcon:<command>\"."
+    }
+  ],
+  "logs": [
+    {
+      "id": "server-log",
+      "name": "Server log",
+      "path": "MyGame/Saved/Logs/*.log",
+      "description": "Wildcards allowed - the newest matching file is followed"
+    }
+  ],
+
+  "cluster": {
+    "protectedConfigKeys": ["Port", "QueryPort", "RCONPort"],
+    "clearFolders": [{ "path": "MyGame/Saved/Logs", "pattern": "*.log", "olderThanDays": 7 }],
+    "preserve": ["MyGame/Saved/SaveGames"]
+  },
+  "backup": {
+    "presets": [
+      { "id": "saves", "name": "Save games only", "paths": ["MyGame/Saved/SaveGames"] },
+      { "id": "settings", "name": "Settings", "paths": ["MyGame/Saved/Config"] }
+    ],
+    "exclude": ["MyGame/Saved/Logs", "*.tmp"]
+  },
+  "events": [
+    { "id": "player-join", "label": "Player joined", "default": false }
+  ],
+  "logging": {
+    "logFiles": ["MyGame/Saved/Logs/*.log"],
+    "patterns": [{ "id": "sudden-stop", "regex": "stopped suddenly", "level": "error" }]
+  },
+  "consoles": [
+    { "id": "game", "name": "Game console", "type": "process" },
+    { "id": "server-log", "name": "Server log", "type": "log", "source": "server-log" }
+  ],
+  "update": {
+    "validateArgs": { "steamcmd": "validate" }
+  },
+  "files": {
+    "autoClear": [{ "path": "MyGame/Saved/Crashes", "pattern": "*", "olderThanDays": 14, "intervalMin": 1440, "default": false }]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "gmod",
+  "name": "Garry's Mod Dedicated Server",
+  "description": "Dedicated server support for Garry's Mod. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/4020/info/",
+  "tags": ["source", "steamcmd"],
+  "docs": [
+    { "title": "Garry's Mod: downloading a dedicated server", "url": "https://wiki.facepunch.com/gmod/Downloading_a_Dedicated_Server", "type": "official", "description": "Facepunch wiki" },
+    { "title": "Source Dedicated Server", "url": "https://developer.valvesoftware.com/wiki/Source_Dedicated_Server", "type": "official", "description": "Valve Developer Community" },
+    { "title": "Command line options", "url": "https://developer.valvesoftware.com/wiki/Command_Line_Options", "type": "official", "description": "Valve Developer Community" },
+    { "title": "Game Server Login Tokens (GSLT)", "url": "https://steamcommunity.com/dev/managegameservers", "type": "official", "description": "Create the token your server needs to be listed" },
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/4020/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "4020"
+  },
+  "run": {
+    "exe": "srcds.exe",
+    "stdin": false,
+    "args": [
+      "-console",
+      ["-game", "garrysmod"],
+      ["-ip", "{ip}"],
+      ["-port", "{port}"],
+      ["-maxplayers", "{maxPlayers}"],
+      ["+sv_setsteamaccount", "{gslt}"],
+      "{param}",
+      ["+map", "{map}"]
+    ]
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27015",
+    "map": "gm_construct",
+    "maxPlayers": "24",
+    "additional": "-tickrate 66 +gamemode sandbox +host_workshop_collection"
+  },
+  "query": "a2s",
+  "gslt": true,
+  "configs": [
+    {
+      "id": "server-cfg",
+      "name": "server.cfg",
+      "path": "garrysmod/cfg/server.cfg",
+      "format": "cfg",
+      "description": "Main server config (hostname, rcon_password, ...)"
+    }
+  ],
+  "logs": [
+    {
+      "id": "server-logs",
+      "name": "Server logs",
+      "path": "garrysmod/logs/*.log",
+      "description": "Written when \"log on\" is set in server.cfg"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "sw",
+  "name": "Stormworks Dedicated Server",
+  "description": "Dedicated server support for Stormworks. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/1247090/info/",
+  "tags": ["steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/1247090/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1247090"
+  },
+  "run": {
+    "exe": "server.exe",
+    "args": ["{param}"]
+  },
+  "defaults": {
+    "port": "25564",
+    "queryPort": "25564",
+    "map": "data/tiles/island12.xml",
+    "maxPlayers": "32",
+    "additional": ""
+  },
+  "query": null
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "mcbe",
+  "name": "Minecraft: Bedrock Edition Server",
+  "description": "Dedicated server support for Minecraft: Bedrock Edition. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "",
+  "tags": ["minecraft", "bedrock", "download"],
+  "docs": [
+    { "title": "Minecraft Bedrock server download", "url": "https://www.minecraft.net/en-us/download/server/bedrock", "type": "official" },
+    { "title": "Bedrock Dedicated Server", "url": "https://minecraft.wiki/w/Bedrock_Dedicated_Server", "type": "unofficial", "description": "Minecraft Wiki" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "steps": [
+      {
+        "type": "script"
+      }
+    ]
+  },
+  "run": {
+    "exe": "bedrock_server.exe",
+    "stopCommand": "stop",
+    "args": []
+  },
+  "defaults": {
+    "port": "19132",
+    "queryPort": "19132",
+    "map": "Bedrock level",
+    "maxPlayers": "10",
+    "additional": ""
+  },
+  "query": null,
+  "configs": [
+    {
+      "id": "server-properties",
+      "name": "server.properties",
+      "path": "server.properties",
+      "format": "properties",
+      "description": "Port (server-port), world name, difficulty, ..."
+    },
+    {
+      "id": "allowlist",
+      "name": "allowlist.json",
+      "path": "allowlist.json",
+      "format": "json"
+    },
+    {
+      "id": "permissions",
+      "name": "permissions.json",
+      "path": "permissions.json",
+      "format": "json"
+    }
+  ]
+}

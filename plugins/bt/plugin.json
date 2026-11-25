@@ -1,0 +1,44 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "bt",
+  "name": "Barotrauma Dedicated Server",
+  "description": "Dedicated server support for Barotrauma. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/1026340/info/",
+  "tags": ["steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/1026340/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1026340"
+  },
+  "run": {
+    "exe": "DedicatedServer.exe",
+    "args": ["{param}"]
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "map": "Casual",
+    "maxPlayers": "10",
+    "additional": ""
+  },
+  "query": null,
+  "configs": [
+    {
+      "id": "serversettings",
+      "name": "serversettings.xml",
+      "path": "serversettings.xml",
+      "format": "xml",
+      "description": "Server name, ports, game rules"
+    }
+  ]
+}

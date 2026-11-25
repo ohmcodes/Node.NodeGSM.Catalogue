@@ -1,0 +1,36 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "unt",
+  "name": "Unturned Dedicated Server",
+  "description": "Dedicated server support for Unturned. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/1110390/info/",
+  "tags": ["unity", "steamcmd"],
+  "docs": [
+    { "title": "Unturned server hosting", "url": "https://docs.smartlydressedgames.com/en/stable/servers/server-hosting.html", "type": "official", "description": "Official Unturned docs" },
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/1110390/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "1110390"
+  },
+  "run": {
+    "exe": "Unturned.exe",
+    "args": ["-batchmode", "--nographics", "-port:{port}", "-players:{maxPlayers}", "-{map}", "{param}"]
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "map": "pei",
+    "maxPlayers": "20",
+    "additional": "+secureserver/Default"
+  },
+  "query": "a2s"
+}

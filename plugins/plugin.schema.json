@@ -1,0 +1,244 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NodeGSM plugin",
+  "description": "plugins/<game>/plugin.json - describes how NodeGSM installs, runs, configures and monitors one game server.",
+  "type": "object",
+  "required": ["id", "name", "install", "run"],
+  "additionalProperties": true,
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{1,31}$", "description": "Unique id. Must equal the folder name." },
+    "name": { "type": "string", "description": "Title shown in the game browser, e.g. Palworld Dedicated Server." },
+    "description": { "type": "string", "description": "One or two sentences for the game browser / website card." },
+    "author": { "type": "string", "description": "The maker of the plugin, shown on the catalogue card." },
+    "contributors": { "type": "array", "items": { "type": "string" }, "description": "Other people who improved the plugin." },
+    "summary": { "type": "string", "maxLength": 140, "description": "One line for the catalogue card (defaults to the start of description)." },
+    "version": { "type": "string", "description": "Plugin version (semver)." },
+    "url": { "type": "string", "description": "Homepage, docs or repository of the plugin/game." },
+    "color": { "type": "string", "description": "Accent colour, e.g. #1E8449." },
+    "docs": {
+      "type": "array",
+      "description": "Documentation links: official and unofficial guides for creating/running this server. Shown in the in-app game browser and on the website.",
+      "items": {
+        "type": "object",
+        "required": ["title", "url", "type"],
+        "properties": {
+          "title": { "type": "string", "description": "Link text, e.g. Dedicated server guide." },
+          "url": { "type": "string", "pattern": "^https?://", "description": "http(s) link." },
+          "type": { "enum": ["official", "unofficial"], "description": "official = published by the game/server developer; unofficial = community wiki, guide, forum, video ..." },
+          "description": { "type": "string", "description": "Optional one-liner about what the page covers." }
+        }
+      }
+    },
+    "tags": { "type": "array", "items": { "type": "string" }, "description": "Search tags, e.g. survival, steamcmd." },
+    "media": {
+      "type": "object",
+      "description": "Files inside the plugin folder shown in the game browser and on the website.",
+      "properties": {
+        "icon": { "type": "string", "default": "icon.png", "description": "Square PNG, 64x64 or larger." },
+        "banner": { "type": "string", "description": "Wide image (optional), e.g. banner.png." },
+        "readme": { "type": "string", "default": "README.md" },
+        "screenshots": { "type": "array", "items": { "type": "string" }, "description": "e.g. screenshots/1.png" }
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "items": { "enum": ["windows", "linux"] },
+      "minItems": 1,
+      "default": ["windows"],
+      "description": "Operating systems this game is known to run on (default: Windows only). NodeGSM refuses to create a server for a platform that is not listed. 'linux' needs the Linux build of the server; add run.linux / install.linux where it differs."
+    },
+    "install": {
+      "description": "How to get the server files. Shorthands: {type: steamcmd, appId} or {type: manual}; or a list of steps. Optional \"linux\": same shape, used instead on Linux.",
+      "oneOf": [
+        { "type": "object", "required": ["type", "appId"], "properties": { "type": { "const": "steamcmd" }, "appId": { "type": "string", "pattern": "^\\d+$" } } },
+        { "type": "object", "required": ["type"], "properties": { "type": { "enum": ["manual", "script"] } } },
+        { "type": "object", "required": ["steps"], "properties": { "steps": { "type": "array", "items": { "$ref": "#/definitions/step" } } } }
+      ]
+    },
+    "run": {
+      "type": "object",
+      "required": ["exe"],
+      "properties": {
+        "exe": { "type": "string", "description": "Server executable relative to the server files folder (use /)." },
+        "command": { "type": "string", "description": "Run this program instead (e.g. java); exe is then only used to check the install." },
+        "workingDir": { "type": "string", "description": "Working directory relative to the server files folder." },
+        "args": { "type": "array", "items": { "$ref": "#/definitions/arg" }, "description": "Argument templates. See PLUGINS.md." },
+        "stdin": { "type": "boolean", "default": true, "description": "false for srcds/hlds (console input breaks them)." },
+        "stopCommand": { "type": "string", "default": "quit", "description": "Text written to the console to stop gracefully." },
+        "env": { "type": "object", "additionalProperties": { "type": "string" }, "description": "Extra environment variables for the server process; {serverFiles} is replaced by the server files folder." },
+        "linux": {
+          "type": "object",
+          "description": "Overrides used on Linux (exe, command, workingDir, args, stdin, stopCommand, env). Keys that are not set fall back to the plain run values; setting exe without command drops the plain command.",
+          "properties": {
+            "exe": { "type": "string" }, "command": { "type": "string" }, "workingDir": { "type": "string" },
+            "args": { "type": "array", "items": { "$ref": "#/definitions/arg" } },
+            "stdin": { "type": "boolean" }, "stopCommand": { "type": "string" },
+            "env": { "type": "object", "additionalProperties": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "defaults": {
+      "type": "object",
+      "properties": {
+        "port": { "type": "string" },
+        "queryPort": { "type": "string" },
+        "map": { "type": "string" },
+        "maxPlayers": { "type": "string" },
+        "additional": { "type": "string", "description": "Default Start parameters." },
+        "portIncrement": { "type": "integer", "minimum": 1, "description": "Ports reserved per instance." }
+      }
+    },
+    "query": { "enum": ["a2s", "ut3", "fivem", null], "description": "Query protocol for player counts." },
+    "gslt": { "type": "boolean", "description": "Show a Game Server Login Token field." },
+    "configs": {
+      "type": "array",
+      "description": "Config files users can edit in the app (INI, JSON, ...). Any number.",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "path"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "path": { "type": "string", "description": "Relative to the server files folder." },
+          "format": { "enum": ["ini", "json", "xml", "properties", "cfg", "yaml", "text"] },
+          "description": { "type": "string" },
+          "template": { "type": "string", "description": "File in the plugin folder copied when the user clicks Create." },
+          "protect": { "type": "array", "items": { "type": "string" }, "description": "Keys/lines kept when this file is synced to cluster members, e.g. port, rcon.*" }
+        }
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "description": "Extra live numbers (FPS, tick rate, entities ...) shown as selectable columns on the Dashboard. Each is read with a regex from the console or a declared log, optionally by sending a console command on a timer.",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "source", "pattern"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string", "description": "Column title, e.g. Server FPS." },
+          "unit": { "type": "string", "description": "e.g. fps, ms, %" },
+          "source": { "type": "string", "description": "console, log:<id of a declared log>, or rcon:<command> (command sent through RCON every intervalSec; the reply is parsed with pattern)." },
+          "pattern": { "type": "string", "description": "JavaScript regex with ONE capture group holding the number, e.g. fps[:= ]+([0-9.]+). The newest match wins." },
+          "command": { "type": "string", "description": "Console command sent every intervalSec so the game prints the value (needs run.stdin)." },
+          "intervalSec": { "type": "number", "minimum": 2, "default": 10 },
+          "staleSec": { "type": "number", "default": 120, "description": "Show - when no new value arrived for this long." },
+          "description": { "type": "string" },
+          "kind": { "enum": ["tick"], "description": "tick = the server's tick rate / tick time (TPS, tick rate, FPS, ms per tick). Shown as the Tick column, header stat, dashboard tile and chart, coloured by thresholds." },
+          "tickTarget": { "type": "number", "exclusiveMinimum": 0, "description": "Healthy value, e.g. 20 (TPS), 64 (tick rate), 50 (ms per tick). Used for colours when no thresholds are given." },
+          "higherIsBetter": { "type": "boolean", "default": true, "description": "false for times (ms per tick): bigger is worse." },
+          "warnBelow": { "type": "number", "description": "higherIsBetter: yellow below this value." },
+          "badBelow": { "type": "number", "description": "higherIsBetter: red below this value (<= warnBelow)." },
+          "warnAbove": { "type": "number", "description": "higherIsBetter false: yellow above this value." },
+          "badAbove": { "type": "number", "description": "higherIsBetter false: red above this value (>= warnAbove)." },
+          "patternFlags": { "type": "string", "description": "RegExp flags, default \"i\" (g / y are ignored)." },
+          "rconConsole": { "type": "string", "description": "source rcon:<command>: id of the rcon console to use (default: the first one)." },
+          "rconSource": { "type": "string", "description": "source rcon:<command>: inline rcon:<port>:<password> (placeholders allowed) instead of a console." }
+        }
+      }
+    },
+    "cluster": {
+      "type": "object",
+      "description": "Optional. Cluster behaviour: what must stay unique per member server and what to clean.",
+      "properties": {
+        "protectedConfigKeys": { "type": "array", "items": { "type": "string" }, "description": "Config keys never overwritten when a config is synced to cluster members, e.g. port, rcon.*" },
+        "clearFolders": { "type": "array", "items": { "$ref": "#/definitions/clearRule" }, "description": "Folders cleaned by the cluster 'clear folders' action." },
+        "preserve": { "type": "array", "items": { "$ref": "#/definitions/relPath" }, "description": "Paths (relative to the server files folder) never overwritten by a cluster update, e.g. saves." }
+      }
+    },
+    "backup": {
+      "type": "object",
+      "description": "Optional. Neat-pick backup presets and exclusions.",
+      "properties": {
+        "presets": { "type": "array", "items": { "type": "object", "required": ["id", "name", "paths"], "properties": { "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" }, "name": { "type": "string" }, "paths": { "type": "array", "items": { "$ref": "#/definitions/relPath" } } } } },
+        "exclude": { "type": "array", "items": { "$ref": "#/definitions/relPath" }, "description": "Paths / wildcard patterns left out of backups." }
+      }
+    },
+    "events": {
+      "type": "array",
+      "description": "Optional. Extra game-specific events that can be logged / sent to Discord.",
+      "items": { "type": "object", "required": ["id", "label"], "properties": { "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" }, "label": { "type": "string" }, "default": { "type": "boolean" } } }
+    },
+    "logging": {
+      "type": "object",
+      "description": "Optional. What the NGSM event log should read from the game.",
+      "properties": {
+        "logFiles": { "type": "array", "items": { "$ref": "#/definitions/relPath" }, "description": "Log files (relative paths, wildcards allowed) the game writes. Declared only - scanning log files is not implemented yet." },
+        "patterns": { "type": "array", "items": { "type": "object", "required": ["id", "regex"], "properties": { "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" }, "regex": { "type": "string", "description": "JavaScript regex matched against each line." }, "level": { "enum": ["info", "warn", "error"] } } } }
+      }
+    },
+    "consoles": {
+      "type": "array",
+      "description": "Optional. Extra consoles shown in the Console tab.",
+      "items": { "type": "object", "required": ["id", "name", "type"], "properties": { "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$", "description": "Unique in consoles[]; main is reserved for the game console." }, "name": { "type": "string" }, "type": { "enum": ["process", "log", "rcon"] }, "source": { "type": "string", "description": "type log: id of a declared log. type rcon: rcon:<port>:<password>, each part a literal or a {placeholder} ({port}, {configId:key}, {key}); see PLUGINS.md." } } }
+    },
+    "update": {
+      "type": "object",
+      "description": "Optional. Update / validate behaviour.",
+      "properties": { "validateArgs": { "type": "object", "additionalProperties": { "type": "string" }, "description": "Per-installer arguments used for Validate, e.g. { \"steamcmd\": \"validate\" }." } }
+    },
+    "files": {
+      "type": "object",
+      "description": "Optional. File-browser helpers.",
+      "properties": { "autoClear": { "type": "array", "items": { "$ref": "#/definitions/clearRule" }, "description": "Rules that delete old files periodically." } }
+    },
+    "logs": {
+      "type": "array",
+      "description": "Log files shown live in the app. Any number. Wildcards * ? allowed in the file name (newest match is followed).",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "path"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "path": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "relPath": { "type": "string", "minLength": 1, "description": "Relative path, no .. and not absolute." },
+    "clearRule": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": { "$ref": "#/definitions/relPath" },
+        "pattern": { "type": "string", "description": "File name wildcard, e.g. *.log" },
+        "olderThanDays": { "type": "number", "minimum": 0 },
+        "recursive": { "type": "boolean", "description": "Also clean sub-folders (cluster clear folders). Default false." },
+        "intervalMin": { "type": "number", "minimum": 1 },
+        "default": { "type": "boolean", "description": "Enabled by default." }
+      }
+    },
+    "arg": {
+      "description": "A string, or an array of strings that is kept or dropped as a group when a {placeholder} is empty.",
+      "oneOf": [{ "type": "string" }, { "type": "array", "items": { "type": "string" } }]
+    },
+    "step": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["steamcmd", "download", "extract", "run", "write", "mkdir", "script"] },
+        "appId": { "type": "string" },
+        "platform": { "enum": ["windows", "linux"], "description": "steamcmd: force the Steam depot platform (+@sSteamCmdForcePlatformType); only sent when it differs from the host." },
+        "mod": { "type": "string" },
+        "repeat": { "type": "integer" },
+        "validate": { "type": "boolean" },
+        "url": { "type": "string" },
+        "to": { "type": "string" },
+        "from": { "type": "string" },
+        "extract": { "type": "boolean" },
+        "extractTo": { "type": "string" },
+        "exe": { "type": "string" },
+        "args": { "type": "array", "items": { "type": "string" } },
+        "cwd": { "type": "string" },
+        "ignoreExit": { "type": "boolean" },
+        "path": { "type": "string" },
+        "content": { "type": "string" },
+        "overwrite": { "type": "boolean" }
+      }
+    }
+  }
+}

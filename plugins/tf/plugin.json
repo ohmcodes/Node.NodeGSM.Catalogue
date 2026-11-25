@@ -1,0 +1,44 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "tf",
+  "name": "The Forest Dedicated Server",
+  "description": "Dedicated server support for The Forest. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/556450/info/",
+  "tags": ["unity", "steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/556450/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "556450"
+  },
+  "run": {
+    "exe": "TheForestDedicatedServer.exe",
+    "args": ["-batchmode", "-dedicated", "{param}"]
+  },
+  "defaults": {
+    "port": "27015",
+    "queryPort": "27016",
+    "map": "",
+    "maxPlayers": "4",
+    "additional": "-configfilepath \"Server.cfg\""
+  },
+  "query": null,
+  "configs": [
+    {
+      "id": "server-cfg",
+      "name": "Server.cfg",
+      "path": "Server.cfg",
+      "format": "cfg",
+      "description": "Server name, ports, password"
+    }
+  ]
+}

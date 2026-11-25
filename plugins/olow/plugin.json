@@ -1,0 +1,35 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "olow",
+  "name": "Outlaws of the Old West Dedicated Server",
+  "description": "Dedicated server support for Outlaws of the Old West. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/915070/info/",
+  "tags": ["unreal", "steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/915070/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "915070"
+  },
+  "run": {
+    "exe": "Outlaws/Binaries/Win64/OutlawsServer-Win64-Shipping.exe",
+    "args": ["{map}", "-port={port}", "-servername={name}", "-PlayerCount={maxPlayers}", "-queryport={queryPort}", "{param}", "-log"]
+  },
+  "defaults": {
+    "port": "27374",
+    "queryPort": "27015",
+    "map": "/Game/Maps/MainMap/MainMap",
+    "maxPlayers": "24",
+    "additional": "-Type=PVP -ServerPassword=\"\" -AdminPassword=\"\""
+  },
+  "query": "a2s"
+}

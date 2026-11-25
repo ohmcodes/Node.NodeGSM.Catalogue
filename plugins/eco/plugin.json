@@ -1,0 +1,44 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "eco",
+  "name": "Eco Dedicated Server",
+  "description": "Dedicated server support for Eco. Install, run, configure and monitor it from NodeGSM.",
+  "author": "WindowsGSM contributors (ported to NodeGSM)",
+  "version": "1.0.0",
+  "url": "https://steamdb.info/app/739590/info/",
+  "tags": ["unity", "steamcmd"],
+  "docs": [
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "SteamDB: dedicated server app info", "url": "https://steamdb.info/app/739590/info/", "type": "unofficial", "description": "App id, depots and build history" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "739590"
+  },
+  "run": {
+    "exe": "EcoServer.exe",
+    "args": ["-batchmode", "-nographics", "-silent-crashes", "{param}"]
+  },
+  "defaults": {
+    "port": "3000",
+    "queryPort": "3001",
+    "map": "",
+    "maxPlayers": "-1",
+    "additional": ""
+  },
+  "query": null,
+  "configs": [
+    {
+      "id": "network",
+      "name": "Network.eco",
+      "path": "Configs/Network.eco",
+      "format": "json",
+      "description": "Server name, ports, password"
+    }
+  ]
+}

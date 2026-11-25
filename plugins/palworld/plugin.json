@@ -1,0 +1,79 @@
+{
+  "$schema": "../plugin.schema.json",
+  "id": "palworld",
+  "name": "Palworld Dedicated Server",
+  "description": "Palworld Dedicated Server",
+  "author": "ohmcodes",
+  "version": "1.1.4",
+  "platforms": ["windows", "linux"],
+  "url": "https://github.com/ohmcodes/WindowsGSM.Palworld",
+  "tags": ["steamcmd"],
+  "docs": [
+    { "title": "Palworld dedicated server guide", "url": "https://tech.palworldgame.com/dedicated-server-guide", "type": "official", "description": "Official setup, ports and settings" },
+    { "title": "SteamCMD reference", "url": "https://developer.valvesoftware.com/wiki/SteamCMD", "type": "official", "description": "Valve Developer Community" },
+    { "title": "How to create a Palworld server", "url": "https://www.survivalservers.com/wiki/index.php?title=How_to_Create_a_Palworld_Server_Guide", "type": "unofficial" }
+  ],
+  "media": {
+    "icon": "icon.png",
+    "readme": "README.md",
+    "screenshots": []
+  },
+  "install": {
+    "type": "steamcmd",
+    "appId": "2394010"
+  },
+  "run": {
+    "exe": "Pal/Binaries/Win64/PalServer-Win64-Shipping-Cmd.exe",
+    "linux": { "exe": "PalServer.sh" },
+    "args": ["{param}", "-publicip={ip}", "-port={port}", "-publicport={port}", "-players={maxPlayers}", "-servername={name}"]
+  },
+  "defaults": {
+    "port": "8211",
+    "queryPort": "8212",
+    "map": "MainWorld5",
+    "maxPlayers": "32",
+    "additional": "-publiclobby -logformat=text",
+    "portIncrement": 2
+  },
+  "query": null,
+  "configs": [
+    {
+      "id": "palworld-settings",
+      "name": "PalWorldSettings.ini",
+      "path": "Pal/Saved/Config/WindowsServer/PalWorldSettings.ini",
+      "format": "ini",
+      "description": "World/gameplay options. Copy the OptionSettings line from DefaultPalWorldSettings.ini in the server root."
+    }
+  ],
+  "logs": [
+    {
+      "id": "pal-logs",
+      "name": "Server logs",
+      "path": "Pal/Saved/Logs/*.log",
+      "description": "Newest log file is followed automatically"
+    }
+  ],
+  "backup": {
+    "presets": [
+      {
+        "id": "saves",
+        "name": "World saves",
+        "paths": [
+          "Pal/Saved/SaveGames"
+        ]
+      },
+      {
+        "id": "settings",
+        "name": "Settings",
+        "paths": [
+          "Pal/Saved/Config"
+        ]
+      }
+    ],
+    "exclude": [
+      "Pal/Saved/Logs",
+      "Pal/Saved/Crashes",
+      "*.tmp"
+    ]
+  }
+}
