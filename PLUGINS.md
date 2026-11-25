@@ -28,7 +28,7 @@ A local plugin with the **same id as a built-in one overrides it** - handy for f
 | `name` | yes | title, e.g. `Palworld Dedicated Server` |
 | `description` | yes* | one or two sentences (shown in the "more info" view) |
 | `author` | yes* | the **maker** of the plugin, shown on every catalogue card |
-| `contributors` | no | other people who improved it, e.g. `["Alice", "Bob"]` |
+| `contributors` | no | other people who improved it, e.g. `["Alice", "@bob-on-github"]`. Write `@login` for a GitHub user and the website shows their picture |
 | `version` | yes* | semver version; bump it when you change the plugin |
 | `summary` | no | one line (max 140 characters) for the catalogue card; defaults to the start of `description` |
 | `url` | no | homepage / docs / SteamDB link |
@@ -424,7 +424,7 @@ The website converter (`/convert.html`, Website repository) writes a `plugin.jso
 | File | What |
 |---|---|
 | `catalogue.json` | tiny change marker `{ schema, generatedAt, count, hash }`; NodeGSM checks this before downloading anything else |
-| `index.json` | lean list: id, name, summary, maker, contributors, version, tags, platforms, install type, sha256, size, URLs of zip / icon / banner / detail |
+| `index.json` | lean list: id, name, summary, maker, contributors, repo (`owner/name` when the plugin `url` is a GitHub repository, used for the star count), version, tags, platforms, install type, sha256, size, URLs of zip / icon / banner / detail |
 | `plugins/<id>.json` | full detail: README, docs links, ports, configs, logs, screenshots, source link |
 | `zips/<id>.zip` | the plugin folder (deterministic; sha256 only changes when the plugin changes) |
 | `media/<id>/` | icon, banner, screenshots |

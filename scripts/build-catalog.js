@@ -18,6 +18,8 @@ const PLUGINS = path.join(ROOT, 'plugins');
 const FIXED_TIME = new Date(Date.UTC(2020, 0, 1)); // deterministic zips
 const SCHEMA = 1;
 
+// "owner/name" when the plugin's url is a GitHub repository (the website shows its stars), else ''
+const githubRepo = (u) => { const g = /^https:\/\/github\.com\/([\w.-]+)\/([\w.-]+?)(?:\.git)?\/?$/.exec(String(u || '')); return g ? g[1] + '/' + g[2] : ''; };
 const sha = (buf) => crypto.createHash('sha256').update(buf).digest('hex');
 const exists = (f) => fs.existsSync(f);
 
@@ -88,7 +90,8 @@ function buildCatalog(outDir, opts = {}) {
       fullName: m.name,
       summary: m.summary ? String(m.summary) : shorten(m.description),
       maker: m.author || '',            // who made the plugin
-      contributors,                      // everyone else who improved it
+      contributors,                      // everyone else who improved it ("@login" shows their GitHub picture on the website)
+      repo: githubRepo(m.url),           // "owner/name" of the plugin's source repository when it is on GitHub (the website shows its stars)
       version: m.version || '',
       tags: m.tags || [],
       platforms,
