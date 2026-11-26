@@ -51,6 +51,8 @@ function validate(m, dir) {
     if (!Array.isArray(m.platforms) || !m.platforms.length || m.platforms.some((p) => !platform.ALL.includes(p))) e(`"platforms" must be a non-empty array of ${platform.ALL.join(' / ')}`);
     else if (m.platforms.includes('linux') && !m.platforms.includes('windows')) w('"platforms" lists linux but not windows - Windows users will not see this game');
   }
+  if (run.stopRcon !== undefined && (typeof run.stopRcon !== 'string' || !run.stopRcon.trim() || run.stopRcon.length > 200)) e('"run.stopRcon" must be a short RCON command such as "stop" (sent through the first rcon console when the server is stopped)');
+  else if (run.stopRcon !== undefined && !(m.consoles || []).some((c) => c && c.type === 'rcon')) e('"run.stopRcon" needs a console of type "rcon" in consoles[]');
   if (run.env !== undefined && !(run.env && typeof run.env === 'object' && !Array.isArray(run.env) && Object.values(run.env).every((v) => typeof v === 'string'))) e('"run.env" must be an object of text values');
   if (run.linux !== undefined) {
     const l = run.linux; const at = 'run.linux';
@@ -101,7 +103,7 @@ function validate(m, dir) {
           if (!cmd.trim()) e(`${at}.source "rcon:<command>" needs a command, e.g. "rcon:tps"`);
           else if (Buffer.byteLength(cmd, 'utf8') > 4096) e(`${at}.source command is too long (limit 4096 bytes)`);
           const rc = (m.consoles || []).filter((c) => c && c.type === 'rcon');
-          if (x.rconSource !== undefined && !/^rcon:(\{[^}]+\}|\d{1,5}):/.test(String(x.rconSource))) e(`${at}.rconSource must look like "rcon:<port>:<password>" (each part a literal or a {placeholder})`);
+          if (x.rconSource !== undefined && !/^(web)?rcon:(\{[^}]+\}|\d{1,5}):/.test(String(x.rconSource))) e(`${at}.rconSource must look like "rcon:<port>:<password>" (each part a literal or a {placeholder})`);
           else if (x.rconSource === undefined && x.rconConsole !== undefined && !rc.some((c) => c.id === x.rconConsole)) e(`${at}.rconConsole "${x.rconConsole}" is not a declared console of type "rcon"`);
           else if (x.rconSource === undefined && x.rconConsole === undefined && !rc.length) e(`${at}.source "rcon:..." needs a console of type "rcon" in consoles[] (or an inline "rconSource")`);
         } else if (src !== 'console' && !/^log:[a-z0-9_-]+$/i.test(src)) e(`${at}.source must be "console", "log:<id of a declared log>" or "rcon:<command>"`);
@@ -253,7 +255,16 @@ function validateExtensions(m, e) {
       if (x.source !== undefined && typeof x.source !== 'string') e(`${at}.source must be text`);
       if (x.type === 'log' && !logIds.has(x.source)) e(`${at}.source must be the id of a declared log`);
       if (x.id === 'main' && x.type !== 'process') e(`${at}.id "main" is reserved for the game console`);
-      if (x.type === 'rcon' && !/^rcon:({[^}]+}|\d{1,5}):/.test(String(x.source || ''))) e(`${at}.source must look like rcon:<port>:<password> (each part a literal or a {placeholder})`);
+      if (x.type === 'rcon' && !/^(web)?rcon:({[^}]+}|\d{1,5}):/.test(String(x.source || ''))) e(`${at}.source must look like rcon:<port>:<password> or webrcon:<port>:<password> (each part a literal or a {placeholder})`);
+      if (x.commands !== undefined) {
+        if (x.type !== 'rcon') e(at + '.commands is only for consoles of type "rcon"');
+        else if (!Array.isArray(x.commands) || x.commands.length > 30) e(at + '.commands must be a list of at most 30 buttons');
+        else x.commands.forEach((c, i) => {
+          if (!isObj(c) || typeof c.label !== 'string' || !c.label.trim() || c.label.length > 40) e(at + '.commands[' + i + '].label is required (text, up to 40 characters)');
+          if (!isObj(c) || typeof c.command !== 'string' || !c.command.trim() || c.command.length > 4096) e(at + '.commands[' + i + '].command is required (text)');
+          if (isObj(c) && c.confirm !== undefined && typeof c.confirm !== 'boolean') e(at + '.commands[' + i + '].confirm must be true or false');
+        });
+      }
     });
   }
   if (m.update !== undefined) {

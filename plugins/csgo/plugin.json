@@ -4,7 +4,7 @@
   "name": "Counter-Strike: Global Offensive Dedicated Server",
   "description": "Dedicated server support for Counter-Strike: Global Offensive. Install, run, configure and monitor it from NodeGSM.",
   "author": "WindowsGSM contributors (ported to NodeGSM)",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "platforms": ["windows", "linux"],
   "url": "https://steamdb.info/app/740/info/",
   "tags": ["source", "steamcmd"],
@@ -28,6 +28,7 @@
   "run": {
     "exe": "srcds.exe",
     "stdin": false,
+    "stopRcon": "quit",
     "linux": { "exe": "srcds_run" },
     "args": [
       "-console",
@@ -74,7 +75,13 @@
   ],
   "consoles": [
     { "id": "game", "name": "Game console", "type": "process" },
-    { "id": "rcon", "name": "RCON", "type": "rcon", "source": "rcon:{port}:{server-cfg:rcon_password}" },
+    { "id": "rcon", "name": "RCON", "type": "rcon", "source": "rcon:{port}:{server-cfg:rcon_password}",
+      "commands": [
+        { "label": "Status", "command": "status" },
+        { "label": "Stats", "command": "stats" },
+        { "label": "Reload map", "command": "changelevel de_dust2", "confirm": true },
+        { "label": "Quit", "command": "quit", "confirm": true }
+      ] },
     { "id": "server-log", "name": "Server log", "type": "log", "source": "server-logs" }
   ],
   "logs": [

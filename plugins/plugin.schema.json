@@ -66,6 +66,7 @@
         "args": { "type": "array", "items": { "$ref": "#/definitions/arg" }, "description": "Argument templates. See PLUGINS.md." },
         "stdin": { "type": "boolean", "default": true, "description": "false for srcds/hlds (console input breaks them)." },
         "stopCommand": { "type": "string", "default": "quit", "description": "Text written to the console to stop gracefully." },
+        "stopRcon": { "type": "string", "description": "RCON command sent first when the server is stopped (needs a console of type rcon), e.g. quit. NodeGSM waits up to 20 s for the server to exit before it uses stopCommand / the process kill." },
         "env": { "type": "object", "additionalProperties": { "type": "string" }, "description": "Extra environment variables for the server process; {serverFiles} is replaced by the server files folder." },
         "linux": {
           "type": "object",
@@ -171,7 +172,7 @@
     "consoles": {
       "type": "array",
       "description": "Optional. Extra consoles shown in the Console tab.",
-      "items": { "type": "object", "required": ["id", "name", "type"], "properties": { "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$", "description": "Unique in consoles[]; main is reserved for the game console." }, "name": { "type": "string" }, "type": { "enum": ["process", "log", "rcon"] }, "source": { "type": "string", "description": "type log: id of a declared log. type rcon: rcon:<port>:<password>, each part a literal or a {placeholder} ({port}, {configId:key}, {key}); see PLUGINS.md." } } }
+      "items": { "type": "object", "required": ["id", "name", "type"], "properties": { "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$", "description": "Unique in consoles[]; main is reserved for the game console." }, "name": { "type": "string" }, "type": { "enum": ["process", "log", "rcon"] }, "source": { "type": "string", "description": "type log: id of a declared log. type rcon: rcon:<port>:<password> (Source RCON) or webrcon:<port>:<password> (WebSocket RCON, Rust), each part a literal or a {placeholder} ({port}, {configId:key}, {key}, {param:name}); see PLUGINS.md." }, "commands": { "type": "array", "maxItems": 30, "description": "type rcon only: quick-command buttons shown above the console input.", "items": { "type": "object", "required": ["label", "command"], "properties": { "label": { "type": "string", "maxLength": 40 }, "command": { "type": "string", "maxLength": 4096 }, "confirm": { "type": "boolean", "description": "Ask before sending." } } } } } }
     },
     "update": {
       "type": "object",

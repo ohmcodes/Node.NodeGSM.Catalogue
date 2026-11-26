@@ -4,7 +4,7 @@
   "name": "Rust Dedicated Server",
   "description": "Dedicated server support for Rust. Install, run, configure and monitor it from NodeGSM.",
   "author": "WindowsGSM contributors (ported to NodeGSM)",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "platforms": ["windows", "linux"],
   "url": "https://steamdb.info/app/258550/info/",
   "tags": ["unity", "steamcmd"],
@@ -25,6 +25,7 @@
   "run": {
     "exe": "RustDedicated.exe",
     "linux": { "exe": "RustDedicated", "env": { "LD_LIBRARY_PATH": "{serverFiles}/RustDedicated_Data/Plugins/x86_64" } },
+    "stopRcon": "quit",
     "args": [
       "-nographics",
       "-batchmode",
@@ -38,6 +39,17 @@
       "{param}"
     ]
   },
+  "consoles": [
+    { "id": "game", "name": "Game console", "type": "process" },
+    { "id": "webrcon", "name": "WebRCON", "type": "rcon", "source": "webrcon:{param:rcon.port}:{param:rcon.password}",
+      "commands": [
+        { "label": "Status", "command": "status" },
+        { "label": "Players", "command": "playerlist" },
+        { "label": "Save", "command": "server.save" },
+        { "label": "Server info", "command": "serverinfo" },
+        { "label": "Quit", "command": "quit", "confirm": true }
+      ] }
+  ],
   "defaults": {
     "port": "28015",
     "queryPort": "28016",

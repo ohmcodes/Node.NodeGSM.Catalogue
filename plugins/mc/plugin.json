@@ -4,7 +4,7 @@
   "name": "Minecraft: Java Edition Server",
   "description": "Dedicated server support for Minecraft: Java Edition. Install, run, configure and monitor it from NodeGSM.",
   "author": "WindowsGSM contributors (ported to NodeGSM)",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "platforms": ["windows", "linux"],
   "url": "",
   "tags": ["minecraft", "java", "download"],
@@ -104,7 +104,13 @@
   ],
   "consoles": [
     { "id": "game", "name": "Game console", "type": "process" },
-    { "id": "rcon", "name": "RCON", "type": "rcon", "source": "rcon:{server-properties:rcon.port}:{server-properties:rcon.password}" },
+    { "id": "rcon", "name": "RCON", "type": "rcon", "source": "rcon:{server-properties:rcon.port}:{server-properties:rcon.password}",
+      "commands": [
+        { "label": "List players", "command": "list" },
+        { "label": "Save world", "command": "save-all" },
+        { "label": "Reload whitelist", "command": "whitelist reload" },
+        { "label": "Stop", "command": "stop", "confirm": true }
+      ] },
     { "id": "latest-log", "name": "latest.log", "type": "log", "source": "latest" }
   ],
   "files": {
