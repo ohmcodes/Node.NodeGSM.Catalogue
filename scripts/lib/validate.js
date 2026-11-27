@@ -18,7 +18,7 @@ const safeRel = (p) => typeof p === 'string' && p.length > 0 && !path.isAbsolute
 function normalizeInstall(i) {
   if (!i) return null;
   if (Array.isArray(i.steps)) return i.steps;
-  if (i.type === 'steamcmd') return [{ type: 'steamcmd', appId: i.appId, mod: i.mod, repeat: i.repeat }];
+  if (i.type === 'steamcmd') return [{ type: 'steamcmd', appId: i.appId, mod: i.mod, repeat: i.repeat, account: i.account }];
   if (i.type === 'manual') return [];
   if (i.type === 'script') return [{ type: 'script' }];
   return null;
@@ -162,6 +162,7 @@ function validateSteps(steps, name, dir, e) {
     const at = `${name}[${i}]`;
     if (!STEP_TYPES.includes(s.type)) return e(`${at}.type must be one of ${STEP_TYPES.join(', ')}`);
     if (s.type === 'steamcmd' && !/^\d+$/.test(String(s.appId || ''))) e(`${at}.appId must be a numeric Steam app id`);
+    if (s.type === 'steamcmd' && s.account !== undefined && typeof s.account !== 'boolean') e(at + '.account must be true or false (true = the game needs a Steam account that owns it, not the anonymous login)');
     if (s.type === 'steamcmd' && s.platform !== undefined && !['windows', 'linux'].includes(s.platform)) e(`${at}.platform must be "windows" or "linux" (forces +@sSteamCmdForcePlatformType)`);
     if (s.type === 'download' && (!s.url || !s.to)) e(`${at} (download) needs "url" and "to"`);
     if (s.type === 'extract' && (!s.from || !s.to)) e(`${at} (extract) needs "from" and "to"`);

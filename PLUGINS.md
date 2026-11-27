@@ -82,7 +82,7 @@ Or a list of **steps**, run in order. Everything happens inside the server's fil
 ```
 | Step | Fields | What it does |
 |---|---|---|
-| `steamcmd` | `appId`, `mod`, `repeat`, `validate`, `beta` | install/update a Steam app. `mod` = GoldSource game via HLDS (`+app_set_config 90 mod X`); `repeat` runs the update several times |
+| `steamcmd` | `appId`, `mod`, `repeat`, `validate`, `beta`, `account` | install/update a Steam app. `mod` = GoldSource game via HLDS (`+app_set_config 90 mod X`); `repeat` runs the update several times; `account: true` = the game only downloads for a Steam account that owns it (DayZ): NodeGSM uses the account the user signed in under **Settings > Steam account** (SteamCMD's cached login, no password stored by NodeGSM) and refuses to install until someone has signed in. Also valid in the short form `"install": { "type": "steamcmd", "appId": "...", "account": true }` |
 | `download` | `url`, `to`, `extract`, `extractTo`, `deleteAfter` | download a file; optionally extract it (zip built in; 7z/tar.gz via Windows `tar`) and delete the archive |
 | `extract` | `from`, `to` | extract an archive that is already there |
 | `run` | `exe`, `args`, `cwd`, `ignoreExit` | run an installer (e.g. a redistributable) and wait for it |

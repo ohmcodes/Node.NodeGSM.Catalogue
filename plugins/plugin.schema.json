@@ -226,6 +226,7 @@
         "platform": { "enum": ["windows", "linux"], "description": "steamcmd: force the Steam depot platform (+@sSteamCmdForcePlatformType); only sent when it differs from the host." },
         "mod": { "type": "string" },
         "repeat": { "type": "integer" },
+        "account": { "type": "boolean", "description": "steamcmd steps: the game only downloads for a Steam account that owns it. NodeGSM then uses the account signed in under Settings > Steam account instead of the anonymous login (and refuses to install until someone has signed in)." },
         "validate": { "type": "boolean" },
         "url": { "type": "string" },
         "to": { "type": "string" },
